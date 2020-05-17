@@ -1,0 +1,2 @@
+module RealAllotsHelper
+end

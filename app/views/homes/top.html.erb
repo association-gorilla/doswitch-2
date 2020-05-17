@@ -1,0 +1,13 @@
+<h2>トップページ</h2>
+
+<h3>【最優先アクション】</h3>
+  <%= @important_verb.name %><br>
+<h3>【設定中アクション】</h3>
+<% @selected_verbs.each do |verb| %>
+  <%= verb.name %><br>
+<% end %>
+
+<p id="RealtimeClockArea2">※ここに時計(2桁固定版)が表示されます。</p>
+
+<h1 id="hello">Hello World</h1>
+

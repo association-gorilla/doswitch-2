@@ -1,0 +1,2 @@
+class DetailPlan < ApplicationRecord
+end

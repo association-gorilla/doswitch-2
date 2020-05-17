@@ -1,0 +1,15 @@
+<h2>ユーザー編集ページ</h2>
+<%= attachment_image_tag(@user, :image, :fill, 150, 150, fallback: "default.png", class: "edit_user_image") %>
+<%= form_with(url: user_path(@user.id), model: @user, local: true) do |f| %>
+  <%= f.attachment_field :image %>
+  <div class="edit_name">
+    <p>ユーザー名</p>
+    <p><%= f.text_field :name ,placeholder: @user.name, class: "edit_name_form" %></p>
+  </div>
+  <div class="edit_email">
+    <p>メールアドレス</p>
+    <p><%= f.text_field :email ,placeholder: @user.email, class: "edit_email_form" %></p>
+  </div>
+  <%= f.submit "更新",id:"user_edit", class: "btn btn-default" %>
+  <%= link_to "削除", user_path(@user.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-default" %>
+<% end %>

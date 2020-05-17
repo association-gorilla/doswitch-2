@@ -1,0 +1,26 @@
+<h2>カスタマイズページ</h2>
+
+<h3>【最優先アクション】</h3>
+<%= form_with(model: @important_verb, url: user_verb_path(user_id: current_user.id, id: @important_verb.id), method: :patch, local: true, class:"form_control") do |f| %>
+  <%= @important_verb.name %><br>
+  <%= f.text_field :name ,class:"form_control"%>
+  <%= f.submit "更新", class:"btn btn-info" %>
+<% end %>
+<h3>【設定中アクション】</h3>
+<% @selected_verbs.each do |verb| %>
+  <%= form_with(model: verb, url: user_verb_path(user_id: current_user.id, id: verb.id), method: :patch, local: true, class:"form_control") do |f| %>
+    <%= verb.name %><br>
+    <%= f.text_field :name ,class:"form_control"%>
+    <%= f.submit "更新", class:"btn btn-info" %>
+  <% end %>
+<% end %>
+
+<h3>【その他のアクション】</h3>
+<% @verbs.each do |verb| %>
+  <%= form_with(model: verb, url: user_verb_path(user_id: current_user.id, id: verb.id), method: :patch, local: true, class:"form_control") do |f| %>
+    <%= verb.name %><br>
+    <%= f.text_field :name ,class:"form_control"%>
+    <%= f.submit "更新", class:"btn btn-info" %>
+    <%= link_to "削除", user_verb_path(user_id: current_user.id, id: verb.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger" %>
+  <% end %>
+<% end %>

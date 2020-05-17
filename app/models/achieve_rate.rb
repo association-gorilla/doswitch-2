@@ -1,0 +1,2 @@
+class AchieveRate < ApplicationRecord
+end

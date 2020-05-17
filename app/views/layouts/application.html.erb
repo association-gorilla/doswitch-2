@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doswitch2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+        <main>
+      <div class="container">
+        <% if user_signed_in? %>
+          link
+          <%= link_to "トップ", root_path, class: "btn btn-default" %>
+          <%= link_to "アバウト", about_path, class: "btn btn-default" %>
+          <%= link_to "ユーザー設定", edit_user_path(current_user), class: "btn btn-default" %>
+          <%= link_to "ログアウト",destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' }, class: "btn btn-default" %>
+        <% end %>
+        <div id="flash_messages">
+          <%= render "layouts/flash_messages" %>
+        </div>
+        <%= yield %>
+      </div>
+    </main>
+  </body>
+</html>

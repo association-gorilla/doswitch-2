@@ -1,0 +1,8 @@
+<%# 成功・エラー文表示 %>
+<% if flash %>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>

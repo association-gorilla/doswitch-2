@@ -1,0 +1,2 @@
+class PlanAllot < ApplicationRecord
+end
