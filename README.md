@@ -1,24 +1,18 @@
-# README
+# DoSwitch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## コンセプト
+行動記録アプリです。  
+計画的に学習時間を確保して取り組むことができます。<br><br>
+## できること
+・「学習時間」や「休憩時間」、「その他の時間」などの時間計測できます。  
+・計画した時間よりもやり過ぎていたり、休憩し過ぎていたりするとプッシュ通知がきます。  
+・取り組みの達成度を色塗りのように可視化できます。<br><br>
+## 作成の経緯
+コロナウイルスの影響で自宅学習をすることが多くなりましたが、ぐうたらしてしまうことも多くなってしまいました。そこで、学習時間を確保するために、時間計測やアラーム、色塗りの可視化でこんな状況でもモチベーションを維持するためにこのアプリの制作に至りました。<br><br>
+## 開発環境
+Ruby 2.7.1 
+Rails 5.2.4.2<br><br>
+## 開発者
+サーバーサイド : kaifumi https://github.com/kaifumi <br>
+フロントエンド : yuri0427a https://github.com/yuri0427a
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
