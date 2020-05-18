@@ -42,15 +42,27 @@ class VerbsController < ApplicationController
 
   def update_important
     verb = Verb.find(params[:id])
-    Verb.bool_change(verb, status: :important)
-    flash[:success] = '優先アクションのステータスを変更しました。'
+    important_verbs = Verb.where(user_id: current_user.id, important: true)
+    # 現在の優先アクションの数が２つ以下になるようにbool値を返す
+    if Verb.important_number_check(verb, important_verbs)
+      Verb.bool_change(verb, status: :important)
+      flash[:success] = '優先アクションのステータスを変更しました。'
+    else
+      flash[:danger] = '優先アクションは１〜２個です'
+    end
     redirect_to request.referer
   end
 
   def update_selected
     verb = Verb.find(params[:id])
-    Verb.bool_change(verb, status: :selected)
-    flash[:success] = '設定中アクションのステータスを変更しました。'
+    selected_verbs = Verb.where(user_id: current_user.id, selected: true)
+    # 現在の優先＋設定中アクションの数が２つ以上５つ以下になるようにbool値を返す
+    if Verb.selected_number_check(verb, selected_verbs)
+      Verb.bool_change(verb, status: :selected)
+      flash[:success] = '設定中アクションのステータスを変更しました。'
+    else
+      flash[:danger] = '優先＋設定アクションは２〜５個です'
+    end
     redirect_to request.referer
   end
 
