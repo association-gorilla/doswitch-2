@@ -15,7 +15,7 @@ class VerbsController < ApplicationController
 
   def edit
     @verb = Verb.new
-    @important_verb = Verb.find_by(user_id: current_user.id, important: true)
+    @important_verbs = Verb.where(user_id: current_user.id, important: true)
     @selected_verbs = Verb.where(user_id: current_user.id, selected: true, important: false)
     @verbs = Verb.where(user_id: current_user.id, selected: false, important: false)
   end
@@ -30,7 +30,6 @@ class VerbsController < ApplicationController
     redirect_to request.referer
   end
 
-  # ジャンルの削除
   def destroy
     verb = Verb.find(params[:id])
     if verb.destroy
@@ -38,6 +37,20 @@ class VerbsController < ApplicationController
     else
       flash[:danger] = '行動の削除に失敗しました'
     end
+    redirect_to request.referer
+  end
+
+  def update_important
+    verb = Verb.find(params[:id])
+    Verb.bool_change(verb, status: :important)
+    flash[:success] = '優先アクションのステータスを変更しました。'
+    redirect_to request.referer
+  end
+
+  def update_selected
+    verb = Verb.find(params[:id])
+    Verb.bool_change(verb, status: :selected)
+    flash[:success] = '設定中アクションのステータスを変更しました。'
     redirect_to request.referer
   end
 
