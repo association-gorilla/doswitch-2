@@ -1,0 +1,2 @@
+class DetailPlanAllot < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_124733) do
+ActiveRecord::Schema.define(version: 2020_05_18_095248) do
 
   create_table "achieve_rates", force: :cascade do |t|
     t.integer "user_id"
@@ -20,9 +20,18 @@ ActiveRecord::Schema.define(version: 2020_05_17_124733) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "detail_plans", force: :cascade do |t|
+  create_table "detail_plan_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
     t.integer "plan_allot_id", null: false
+    t.datetime "begin_term"
+    t.datetime "end_term"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "detail_real_allots", force: :cascade do |t|
+    t.integer "verb_id", null: false
+    t.integer "real_allot_id", null: false
     t.datetime "begin_term"
     t.datetime "end_term"
     t.datetime "created_at", null: false
@@ -47,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_05_17_124733) do
   end
 
   create_table "real_allots", force: :cascade do |t|
-    t.integer "action_id", null: false
+    t.integer "verb_id", null: false
     t.float "allot"
     t.datetime "term"
     t.datetime "created_at", null: false

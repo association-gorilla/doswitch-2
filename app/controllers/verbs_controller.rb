@@ -2,6 +2,13 @@ class VerbsController < ApplicationController
   # ログインユーザーのみ実行可能にする
   before_action :authenticate_user!
 
+  def index
+    @verb = Verb.new
+    @important_verbs = Verb.where(user_id: current_user.id, important: true)
+    @selected_verbs = Verb.where(user_id: current_user.id, selected: true, important: false)
+    @verbs = Verb.where(user_id: current_user.id, selected: false, important: false)
+  end
+
   def create
     verb = Verb.new
     if verb.save(verb_params)
@@ -11,13 +18,6 @@ class VerbsController < ApplicationController
       flash[:danger] = '行動の登録に失敗しました。'
       render :new
     end
-  end
-
-  def edit
-    @verb = Verb.new
-    @important_verbs = Verb.where(user_id: current_user.id, important: true)
-    @selected_verbs = Verb.where(user_id: current_user.id, selected: true, important: false)
-    @verbs = Verb.where(user_id: current_user.id, selected: false, important: false)
   end
 
   def update
