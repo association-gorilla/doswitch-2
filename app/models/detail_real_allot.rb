@@ -1,0 +1,2 @@
+class DetailRealAllot < ApplicationRecord
+end
