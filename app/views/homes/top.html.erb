@@ -2,7 +2,7 @@
 <h3>【最優先アクション】</h3>
 <% @important_verbs.each do |verb| %>
   <p><%= verb.name %></p>
-  <%= link_to "計測スタート", record_start_path(user_id: current_user.id, id: verb.id) %>
+  <%= record_toggle(verb) %>
 <% end %>
 <h3>【設定中アクション】</h3>
 <% @selected_verbs.each do |verb| %>
@@ -10,4 +10,6 @@
 <% end %>
 
 <p id="RealtimeClockArea2"></p>
+
+
 

@@ -1,4 +1,10 @@
 class Verb < ApplicationRecord
+  has_many :real_allots, dependent: :destroy
+  has_many :plan_allots, dependent: :destroy
+  has_many :detail_real_allots, dependent: :destroy
+  has_many :detail_plan_allots, dependent: :destroy
+  has_many :rewards, dependent: :destroy
+
   # importantステータスの変更
   def self.bool_change(verb, status:)
     if verb[status]

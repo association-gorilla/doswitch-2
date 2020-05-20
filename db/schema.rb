@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_095248) do
 
   create_table "achieve_rates", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "verb_name"
+    t.integer "verb_id"
     t.float "date_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,23 +22,24 @@ ActiveRecord::Schema.define(version: 2020_05_18_095248) do
 
   create_table "detail_plan_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
-    t.integer "plan_allot_id", null: false
-    t.datetime "begin_term"
-    t.datetime "end_term"
+    t.integer "user_id", null: false
+    t.datetime "begin_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "detail_real_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
-    t.integer "real_allot_id", null: false
-    t.datetime "begin_term"
-    t.datetime "end_term"
+    t.integer "user_id", null: false
+    t.datetime "begin_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "plan_allot_id"
     t.integer "term_num"
     t.string "behavior", default: "", null: false
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_095248) do
 
   create_table "plan_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
-    t.float "allot"
+    t.integer "allot"
     t.datetime "term"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_095248) do
 
   create_table "real_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
-    t.float "allot"
+    t.integer "allot"
     t.datetime "term"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

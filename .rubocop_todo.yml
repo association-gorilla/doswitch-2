@@ -99,7 +99,7 @@ Layout/EmptyLinesAroundClassBody:
 
 # def~endの間に入れることが可能な行数を設定
 Metrics/MethodLength:
-  Max: 12
+  Max: 15
   Exclude:
 
 Metrics/BlockLength:
@@ -112,10 +112,9 @@ Metrics/BlockLength:
 # AbcSizeとは「Assignment:変数への代入,Branch:メソッド呼び出し,Condition:条件文」左記3項目の合計ポイント
 # デフォルトで15に設定されている
 Metrics/AbcSize:
-  Exclude:
-
   Enabled: true
-  Max: 30
+  Max: 80
+  Exclude:
 
 Metrics/CyclomaticComplexity:
   Max: 10

@@ -12,6 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
 
 function set2fig(num) {
@@ -34,3 +36,95 @@ function showClock2() {
   document.getElementById("RealtimeClockArea2").innerHTML = msg;
 }
 setInterval("showClock2()", 1000);
+
+var fix_nowTime = new Date();
+var fix_nowHour = fix_nowTime.getHours();
+var fix_nowMin = fix_nowTime.getMinutes();
+var fix_nowSec = fix_nowTime.getSeconds();
+
+function set1hour(num) {
+  // 実行時間の時だけ抜き出すと何時間か算出する
+  if (num > 3600) {
+    num /= 3600;
+  } else {
+    num = 0;
+  }
+  num = num | 0
+  return num;
+}
+
+function set1min(num) {
+  // 実行時間の分だけ抜き出すと何分か算出する
+  if (num >= 3600) {
+    num = num % 3600 / 60;
+  } else if (num >= 60) {
+    num /= 60;
+  } else {
+    num = 0
+  }
+  num = num | 0
+  return num;
+}
+
+function set1sec(num) {
+  // 実行時間の秒だけ抜き出すと何秒か算出する
+  if (num >= 3600) {
+    num = num % 3600 % 60;
+  } else if (num >= 60) {
+    num %= 60;
+  }
+  num = num | 0
+  return num;
+}
+
+function limit59set(num) {
+  // 分もしくは秒が59以上にならないようにする
+  if (num > 59) {
+    num %= 60
+  } else if (num < 0) {
+    num += 60
+  }
+  num = num | 0
+  return num
+}
+
+function waste1set(num) {
+  // 分もしくは秒が59以上になる場合に超えた分を返す
+  if (num > 59) {
+    num /= 60
+  } else if (num < 0) {
+    num = -1
+  } else {
+    num = 0
+  }
+  num = num | 0
+  return num
+}
+
+// 実行中の時間を出力
+$(document).ready(function () {
+  setInterval(function () {
+    var recordTime = Number($('#record-time').val());
+    // 時・分・秒に切り分けて算出
+    var recordTimeHour = set1hour(recordTime);
+    var recordTimeMin = set1min(recordTime);
+    var recordTimeSec = set1sec(recordTime);
+    // 各切り分けた時間を現在時刻の固定値から差し引き合計値を求める
+    var totalAddHour = fix_nowHour - recordTimeHour;
+    var totalAddMin = fix_nowMin - recordTimeMin;
+    var totalAddSec = fix_nowSec - recordTimeSec;
+    var nowTime = new Date();
+    // 表示限界を超えないように調整
+    var just_nowMin = limit59set(nowTime.getMinutes() - totalAddMin);
+    var just_nowSec = limit59set(nowTime.getSeconds() - totalAddSec);
+    // 超えた分を後に足すために定義する
+    var addBeyondHour = waste1set(nowTime.getMinutes() - totalAddMin);
+    var addBeyondMin = waste1set(nowTime.getSeconds() - totalAddSec);
+    // 時と分には超えたぶんを足す
+    var nowHour = set2fig(nowTime.getHours() - totalAddHour + addBeyondHour);
+    var nowMin = set2fig(just_nowMin + addBeyondMin);
+    var nowSec = set2fig(just_nowSec);
+    var msg = "現在の実行時間　" + nowHour + ":" + nowMin + ":" + nowSec;
+    $("#record_time_output").text(msg);
+  }, 1000);
+});
