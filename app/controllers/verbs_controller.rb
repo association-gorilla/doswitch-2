@@ -27,6 +27,7 @@ class VerbsController < ApplicationController
     else
       flash[:danger] = '行動の更新に失敗しました'
     end
+    redirect_to request.referer
   end
 
   def destroy

@@ -8,14 +8,14 @@ class HomesController < ApplicationController
     @important_verbs = Verb.where(user_id: current_user.id, important: true)
     @selected_verbs = Verb.where(user_id: current_user.id, selected: true, important: false)
     # 計測中のアクションの再スタート
-    DetailRealAllot.restart(current_user)
+    DetailRealAllot.restart(current_user.id)
   end
 
   def record_start
     # 計測中のアクションが他にあればそれを止める
-    DetailRealAllot.other_action_stop(current_user)
+    DetailRealAllot.other_action_stop(current_user.id)
     # 当日の記録用レコードを作成する
-    RealAllot.today_record_create(params[:id], current_user)
+    RealAllot.today_record_create(params[:id], current_user.id)
     flash[:success] = '「' + Verb.find(params[:id]).name + '」の計測を開始しました'
     redirect_to request.referer
   end

@@ -3,20 +3,20 @@ class DetailRealAllot < ApplicationRecord
   belongs_to :verb
 
   # アクションの再スタート
-  def self.restart(current_user)
-    detail_real_allot = DetailRealAllot.find_by(user_id: current_user.id, end_time: nil)
+  def self.restart(user_id)
+    detail_real_allot = DetailRealAllot.find_by(user_id: user_id, end_time: nil)
     # 計測中のアクションがある場合は実行
     return unless detail_real_allot
 
     tmp_verb = detail_real_allot.verb
     # 再スタートして、表示のリセットを防ぐ
     action_stop(tmp_verb.id)
-    DetailRealAllot.create!(verb_id: tmp_verb.id, user_id: current_user.id, begin_time: Time.zone.now)
+    DetailRealAllot.create!(verb_id: tmp_verb.id, user_id: user_id, begin_time: Time.zone.now)
   end
 
   # 他のアクションがあれば止める
-  def self.other_action_stop(current_user)
-    detail_real_allot = DetailRealAllot.find_by(user_id: current_user.id, end_time: nil)
+  def self.other_action_stop(user_id)
+    detail_real_allot = DetailRealAllot.find_by(user_id: user_id, end_time: nil)
     # 計測中のアクションがある場合は実行
     return unless detail_real_allot
 
