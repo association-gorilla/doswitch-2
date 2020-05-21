@@ -8,7 +8,7 @@ module HomesHelper
           tag.p('現在の実行時間　00:00:00')
       else
         tag.a('計測スタート', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn btn-info') +
-          tag.p('現在の実行時間　' + Time.at(RealAllot.where(verb_id: verb.id, created_at: Time.zone.now.all_day).first.allot).utc.strftime('%X'))
+          tag.p('現在の実行時間　' + Time.at(RealAllot.find_by(verb_id: verb.id, created_at: Time.zone.now.all_day).allot).utc.strftime('%X'))
       end
     when false
       tag.a('計測ストップ', href: record_stop_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning') +
@@ -19,6 +19,6 @@ module HomesHelper
 
   #  アクションの今日の実行時間を返す
   def recording_time_set(verb)
-    RealAllot.where(verb_id: verb.id, created_at: Time.zone.now.all_day).first.allot
+    RealAllot.find_by(verb_id: verb.id, created_at: Time.zone.now.all_day).allot
   end
 end
