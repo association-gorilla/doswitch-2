@@ -7,6 +7,7 @@
 <h3>【設定中アクション】</h3>
 <% @selected_verbs.each do |verb| %>
   <p><%= verb.name %></p>
+  <%= record_toggle(verb) %>
 <% end %>
 
 <p id="RealtimeClockArea2"></p>
