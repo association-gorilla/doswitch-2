@@ -7,21 +7,21 @@ class HomesController < ApplicationController
   def top
     @important_verbs = Verb.where(user_id: current_user.id, important: true)
     @selected_verbs = Verb.where(user_id: current_user.id, selected: true, important: false)
+    # 計測中のアクションの再スタート
+    DetailRealAllot.restart(current_user)
   end
 
   def record_start
-    real_allot = RealAllot.where(verb_id: params[:id], created_at: Time.zone.now.all_day).first
-    RealAllot.create!(verb_id: params[:id]) if real_allot.blank?
-    DetailRealAllot.create!(verb_id: params[:id], user_id: current_user.id, begin_time: Time.zone.now)
-    flash[:success] = '計測開始しました'
+    # 計測中のアクションが他にあればそれを止める
+    DetailRealAllot.other_action_stop(current_user)
+    # 当日の記録用レコードを作成する
+    RealAllot.today_record_create(params[:id], current_user)
+    flash[:success] = '「' + Verb.find(params[:id]).name + '」の計測を開始しました'
     redirect_to request.referer
   end
 
   def record_stop
-    detail_real_allot = DetailRealAllot.find_by(verb_id: params[:id], end_time: nil)
-    detail_real_allot.update(end_time: Time.zone.now)
-    real_allot = RealAllot.where(verb_id: params[:id], created_at: Time.zone.now.all_day).first
-    real_allot.update(allot: real_allot.allot.to_i + (Time.zone.now - detail_real_allot.begin_time))
+    DetailRealAllot.action_stop(params[:id])
     flash[:success] = '計測を終了しました'
     redirect_to request.referer
   end

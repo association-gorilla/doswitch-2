@@ -13,10 +13,11 @@ module HomesHelper
     when false
       tag.a('計測ストップ', href: record_stop_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning') +
         (tag.input id: 'record-time', type: 'hidden', value: recording_time_set(verb)) +
-        (tag.span id: 'record_time_output')
+        (tag.p id: 'record_time_output')
     end
   end
 
+  #  アクションの今日の実行時間を返す
   def recording_time_set(verb)
     RealAllot.where(verb_id: verb.id, created_at: Time.zone.now.all_day).first.allot
   end
