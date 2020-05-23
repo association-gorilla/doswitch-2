@@ -23,6 +23,9 @@ gem 'refile-mini_magick'
 gem 'devise'
 gem 'faker'
 gem 'jquery-rails'
+# Railsで定時処理をするためのgem
+gem 'whenever', require: false
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
