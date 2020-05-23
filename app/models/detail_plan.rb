@@ -1,2 +1,0 @@
-class DetailPlan < ApplicationRecord
-end

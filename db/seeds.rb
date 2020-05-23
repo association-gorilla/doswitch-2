@@ -31,10 +31,18 @@ Verb.create!(user_id: 1,
     )
 
 
-27.times do |n|
+20.times do |n|
   Verb.create!(user_id: 1,
               name: Faker::Games::Pokemon.move,
               selected: false,
               important: false
                )
+end
+
+20.times do |n|
+Verb.create!(user_id: 100,
+            name: Faker::Games::Pokemon.move,
+            selected: false,
+            important: false
+              )
 end

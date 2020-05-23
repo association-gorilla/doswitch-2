@@ -1,13 +1,16 @@
 <h2>トップページ</h2>
-
 <h3>【最優先アクション】</h3>
-  <%= @important_verb.name %><br>
+<% @important_verbs.each do |verb| %>
+  <p><%= verb.name %></p>
+  <%= record_toggle(verb) %>
+<% end %>
 <h3>【設定中アクション】</h3>
 <% @selected_verbs.each do |verb| %>
-  <%= verb.name %><br>
+  <p><%= verb.name %></p>
+  <%= record_toggle(verb) %>
 <% end %>
 
-<p id="RealtimeClockArea2">※ここに時計(2桁固定版)が表示されます。</p>
+<p id="RealtimeClockArea2"></p>
 
-<h1 id="hello">Hello World</h1>
+
 

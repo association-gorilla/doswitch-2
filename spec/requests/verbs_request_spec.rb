@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Verbs", type: :request do
-
+RSpec.describe 'Verbs', type: :request do
 end

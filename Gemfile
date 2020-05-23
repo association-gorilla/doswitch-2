@@ -3,7 +3,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
 ruby '2.7.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 # BootstrapでSassを使うgem
@@ -23,6 +22,10 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'devise'
 gem 'faker'
+gem 'jquery-rails'
+# Railsで定時処理をするためのgem
+gem 'whenever', require: false
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
