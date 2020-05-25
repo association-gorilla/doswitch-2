@@ -25,7 +25,8 @@ gem 'faker'
 gem 'jquery-rails'
 # Railsで定時処理をするためのgem
 gem 'whenever', require: false
-
+# JavaScriptのランタイムを用意　
+gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

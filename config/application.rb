@@ -9,5 +9,7 @@ module Doswitch2
     config.generators do |g|
       g.test_framework = 'rspec'
     end
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
