@@ -6,7 +6,7 @@ module VerbsHelper
       tag.a('-優先', href: update_important_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning') if important_verbs.length > 1
     when false
       # 設定アクションであるかつ、設定アクションが1より多いなら表示する
-      if verb.selected && selected_verbs.length > 1
+      if verb.selected && selected_verbs.length > 1 && important_verbs.length != 2
         tag.a('+優先', href: update_important_path(user_id: current_user.id, id: verb.id), class: 'btn btn-success')
       end
     end
