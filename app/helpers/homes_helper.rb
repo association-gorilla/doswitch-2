@@ -23,6 +23,7 @@ module HomesHelper
 
   #  アクションの今日の実行時間を返す
   def recording_time_set(verb)
-    RealAllot.find_by(verb_id: verb.id, created_at: Time.zone.now.in_time_zone('Tokyo').all_day).allot
+    today_real_allot = RealAllot.where(verb_id: verb.id, created_at: Time.zone.now.in_time_zone('Tokyo').all_day).last
+    today_real_allot.allot if today_real_allot.present?
   end
 end

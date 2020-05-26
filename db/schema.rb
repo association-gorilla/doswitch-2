@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_095248) do
 
   create_table "plan_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
+    t.integer "user_id", null: false
     t.integer "allot"
     t.datetime "term"
     t.datetime "created_at", null: false
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_095248) do
 
   create_table "real_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
+    t.integer "user_id", null: false
     t.integer "allot"
     t.datetime "term"
     t.datetime "created_at", null: false
