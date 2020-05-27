@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_095248) do
+ActiveRecord::Schema.define(version: 2020_05_26_073800) do
 
-  create_table "achieve_rates", force: :cascade do |t|
+  create_table "achieve_records", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "verb_id"
-    t.float "date_rate"
+    t.string "verb_name"
+    t.integer "allot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

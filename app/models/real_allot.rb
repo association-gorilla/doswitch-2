@@ -1,4 +1,5 @@
 class RealAllot < ApplicationRecord
+  belongs_to :user
   belongs_to :verb
 
   # 当日の記録用レコードを作成する

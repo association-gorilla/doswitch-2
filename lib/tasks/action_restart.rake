@@ -16,7 +16,7 @@ namespace :action_restart do
         # 翌日のreal_allotを作成
         RealAllot.create!(verb_id: verb.id, user_id: detail_real_allot.user_id)
         # 現在実行中だった詳細配分をスタートを翌日の始めにして作成
-        DetailRealAllot.create!(verb_id: verb.id, user_id: detail_real_allot.user_id, begin_time: Time.now.in_time_zone('Tokyo').beginning_of_day)
+        DetailRealAllot.create!(verb_id: verb.id, user_id: detail_real_allot.user_id, begin_time: Time.current.in_time_zone('Tokyo').beginning_of_day)
       end
     end
   end

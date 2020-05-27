@@ -1,0 +1,7 @@
+<h2><%= @active_records[0].created_at.strftime("%m月%d日") %>の記録</h2>
+	<p>行動と実行時間</p>
+  <% @active_records.each do |active_record| %>
+    <%= active_record.verb_name %>
+    <%= Time.at(active_record.allot).utc.strftime('%X') %>
+  <% end %>
+<%= pie_chart @action_chart %>
