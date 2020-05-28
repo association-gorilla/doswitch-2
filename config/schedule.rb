@@ -7,6 +7,10 @@ set :environment, rails_env
 env :PATH, ENV['PATH']
 job_type :rbenv_rake, %q!eval "$(rbenv init -)"; cd :path && :environment_variable=:environment bundle exec rake :task --silent :output!
 
-every 1.day, :at => '00:00 am' do
+every 1.day, :at => '0:00 am' do
   rake "action_restart:day_beyond_restart"
+end
+
+every 10.minutes do
+  rake "achieve_record:yesterday_allot_save"
 end
