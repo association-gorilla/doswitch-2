@@ -11,6 +11,6 @@ every 1.day, :at => '0:00 am' do
   rake "action_restart:day_beyond_restart"
 end
 
-every 10.minutes do
+every 1.hours do
   rake "achieve_record:yesterday_allot_save"
 end
