@@ -4,9 +4,11 @@ class CreatePlanAllots < ActiveRecord::Migration[5.2]
       t.integer :verb_id, null: false
       t.integer :user_id, null: false
       # 取り組みの配分
-      t.integer :allot
+      t.integer :allot_h
+      t.integer :allot_m
       # 取り組み日数
-      t.datetime :term
+      t.date :begin_term
+      t.date :end_term
       t.timestamps
     end
   end

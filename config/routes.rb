@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :destroy] do
     resources :verbs, only: [:index, :create, :update, :destroy]
     resource :achieve_record, only: [:show]
+    resources :plan_allots, only: [:index, :create, :update, :destroy]
   end
 end
