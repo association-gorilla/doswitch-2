@@ -51,8 +51,10 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
   create_table "plan_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
     t.integer "user_id", null: false
-    t.integer "allot"
-    t.datetime "term"
+    t.integer "allot_h"
+    t.integer "allot_m"
+    t.date "begin_term"
+    t.date "end_term"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
-    t.text "image_id"
+    t.string "image_id"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
