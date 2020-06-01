@@ -7,8 +7,8 @@ class CreatePlanAllots < ActiveRecord::Migration[5.2]
       t.integer :allot_h
       t.integer :allot_m
       # 取り組み日数
-      t.date :begin_term
-      t.date :end_term
+      t.date :begin_date
+      t.date :end_date
       t.timestamps
     end
   end

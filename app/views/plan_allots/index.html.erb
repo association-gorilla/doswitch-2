@@ -15,7 +15,9 @@
   <p>すること：<%= f.select :verb_id, @important_verbs.map{ |v| [v.name, v.id] } %></p>
   <%# 整数時間で入力して保存時秒に変換する %>
   <p>目標時間：<%= f.select :allot_h, 1..24,class:"form_control" %> 時間<%= f.select :allot_m, 0..59,class:"form_control" %> 分</p>
-  <p>期間：<%= f.date_select :begin_term, :use_month_numbers => true, class:"form_control" %> ~ <%= f.date_select :end_term, :use_month_numbers => true, class:"form_control" %> まで</p>
+  <p>期間：<%= f.date_select :begin_date, :use_month_numbers => true, class:"form_control" %> ~ <%= f.date_select :end_date, :use_month_numbers => true, class:"form_control" %> まで</p>
   <%= f.submit "作成", class:"btn btn-info" %>
 <% end %>
+
+<div id="calendar"></div>
 
