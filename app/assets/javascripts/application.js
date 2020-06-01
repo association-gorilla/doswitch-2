@@ -10,9 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require chartkick
+//= require Chart.bundle
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require moment
+//= require moment/ja.js
+//= require fullcalendar
+//= require fullcalendar/lang/ja
 //= require jquery_ujs
 //= require_tree .
 
@@ -127,4 +133,67 @@ $(document).ready(function () {
     var msg = "現在の実行時間　" + nowHour + ":" + nowMin + ":" + nowSec;
     $("#record_time_output").text(msg);
   }, 1000);
+});
+
+// カレンダー表示
+// $(function () {
+//   $('#calendar').fullCalendar({
+//     events: '/plan_allots.json',
+//   });
+// });
+
+$(function () {
+  // 画面遷移を検知
+  // $(document).on('turbolinks:load', function () {
+  //     if ($('#calendar').length) {
+
+  function Calendar() {
+    return $('#calendar').fullCalendar({});
+  }
+
+  function clearCalendar() {
+    $('#calendar').html('');
+  }
+
+  //events: '/events.json', 以下に追加
+  $('#calendar').fullCalendar({
+    events: '/users/:user_id/plan_allots.json',
+    //カレンダー上部を年月で表示させる
+    titleFormat: 'YYYY年 M月',
+    //曜日を日本語表示
+    dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+    //ボタンのレイアウト
+    header: {
+      left: '',
+      center: 'title',
+      right: 'today prev,next'
+    },
+    //終了時刻がないイベントの表示間隔
+    defaultTimedEventDuration: '24:00:00',
+    buttonText: {
+      prev: '前',
+      next: '次',
+      prevYear: '前年',
+      nextYear: '翌年',
+      today: '今日',
+      month: '月',
+      week: '週',
+      day: '日'
+    },
+    // 日付クリックイベント
+    dayClick: function () {
+      alert('日付クリックイベント');
+    },
+    // Drag & Drop & Resize
+    editable: true,
+    //イベントの色を変える
+    eventColor: '#87cefa',
+    //イベントの文字色を変える
+    eventTextColor: '#ffffff',
+    eventRender: function (event, element) {
+      element.css("font-size", "0.8em");
+      element.css("padding", "5px");
+    }
+
+  });
 });

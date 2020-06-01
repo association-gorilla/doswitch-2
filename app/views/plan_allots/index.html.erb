@@ -1,0 +1,23 @@
+<h2>学習計画ページ</h2>
+<h3>本日の計画</h3>
+<% @today_plan_allots.each do |plan_allot| %>
+  <%= form_with(model: plan_allot, url: user_plan_allot_path(user_id: current_user.id, id: plan_allot.id), method: :patch, local: true, class:"form_control") do |f| %>
+    <p>すること：<%= plan_allot.verb.name %></p>
+    <p>目標時間：<%= plan_allot.allot_h %> 時間<%= plan_allot.allot_m %>分</p>
+    <%= f.select :allot_h, 1..24, class:"form_control" %> 時間<%= f.select :allot_m, 0..59, class:"form_control" %> 分
+    <%= f.submit "更新", class:"btn btn-info" %>
+    <%= link_to "削除", user_plan_allot_path(user_id: current_user.id, id: plan_allot.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger" %>
+  <% end %>
+<% end %>
+
+<h3>計画の追加</h3>
+<%= form_with(model: @plan_allot, url: user_plan_allots_path(user_id: current_user.id), method: :post, local: true, class:"form_control") do |f| %>
+  <p>すること：<%= f.select :verb_id, @important_verbs.map{ |v| [v.name, v.id] } %></p>
+  <%# 整数時間で入力して保存時秒に変換する %>
+  <p>目標時間：<%= f.select :allot_h, 1..24,class:"form_control" %> 時間<%= f.select :allot_m, 0..59,class:"form_control" %> 分</p>
+  <p>期間：<%= f.date_select :begin_date, :use_month_numbers => true, class:"form_control" %> ~ <%= f.date_select :end_date, :use_month_numbers => true, class:"form_control" %> まで</p>
+  <%= f.submit "作成", class:"btn btn-info" %>
+<% end %>
+
+<div id="calendar"></div>
+

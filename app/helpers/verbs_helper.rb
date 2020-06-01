@@ -3,10 +3,12 @@ module VerbsHelper
   def important_change_btn(verb, important_verbs, selected_verbs)
     case verb.important
     when true
-      tag.a('-優先', href: update_important_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning') if important_verbs.length > 1
+      if important_verbs.length > 1 && selected_verbs.length != 3
+        tag.a('-優先', href: update_important_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning')
+      end
     when false
       # 設定アクションであるかつ、設定アクションが1より多いなら表示する
-      if verb.selected && selected_verbs.length > 1
+      if verb.selected && selected_verbs.length > 1 && important_verbs.length != 2
         tag.a('+優先', href: update_important_path(user_id: current_user.id, id: verb.id), class: 'btn btn-success')
       end
     end
@@ -21,7 +23,7 @@ module VerbsHelper
         tag.a('-設定', href: update_selected_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning')
       end
     when false
-      tag.a('+設定', href: update_selected_path(user_id: current_user.id, id: verb.id), class: 'btn btn-success')
+      tag.a('+設定', href: update_selected_path(user_id: current_user.id, id: verb.id), class: 'btn btn-success') if selected_verbs.length != 3
     end
   end
 end

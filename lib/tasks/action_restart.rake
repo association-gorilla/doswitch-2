@@ -14,9 +14,9 @@ namespace :action_restart do
         # 前日のreal_allotを終日配分を足して更新
         real_allot.update!(allot: real_allot.allot.to_i + (1.day.ago.in_time_zone('Tokyo').end_of_day - detail_real_allot.begin_time).abs)
         # 翌日のreal_allotを作成
-        RealAllot.create!(verb_id: verb.id)
+        RealAllot.create!(verb_id: verb.id, user_id: detail_real_allot.user_id)
         # 現在実行中だった詳細配分をスタートを翌日の始めにして作成
-        DetailRealAllot.create!(verb_id: verb.id, user_id: detail_real_allot.user_id, begin_time: Time.now.in_time_zone('Tokyo').beginning_of_day)
+        DetailRealAllot.create!(verb_id: verb.id, user_id: detail_real_allot.user_id, begin_time: Time.current.in_time_zone('Tokyo').beginning_of_day)
       end
     end
   end

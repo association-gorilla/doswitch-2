@@ -10,13 +10,13 @@ class VerbsController < ApplicationController
   end
 
   def create
-    verb = Verb.new
-    if verb.save(verb_params)
+    verb = Verb.new(user_id: current_user.id, name: params[:verb][:name])
+    if verb.save!
       flash[:success] = '新しい行動登録に成功しました。'
       redirect_to request.referer
     else
       flash[:danger] = '行動の登録に失敗しました。'
-      render :new
+      render :index
     end
   end
 

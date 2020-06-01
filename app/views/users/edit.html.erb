@@ -1,7 +1,7 @@
 <h2>ユーザー編集ページ</h2>
-<%= attachment_image_tag(@user, :image, :fill, 150, 150, fallback: "default.png", class: "edit_user_image") %>
+<%= attachment_image_tag @user, :image, :fill, 150, 150, fallback: "default.png", class: "edit_user_image" %>
 <%= form_with(url: user_path(@user.id), model: @user, local: true) do |f| %>
-  <%= f.attachment_field :image %>
+  <%= f.attachment_field :image, direct: true, presigned: true %>
   <div class="edit_name">
     <p>ユーザー名</p>
     <p><%= f.text_field :name ,placeholder: @user.name, class: "edit_name_form" %></p>
