@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
     t.integer "user_id", null: false
     t.integer "allot_h"
     t.integer "allot_m"
-    t.date "begin_term"
-    t.date "end_term"
+    t.date "begin_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
     t.integer "verb_id", null: false
     t.integer "user_id", null: false
     t.integer "allot"
-    t.datetime "term"
+    t.integer "term"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
