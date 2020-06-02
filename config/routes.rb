@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/verbs/:id/update_important' => 'verbs#update_important', as: "update_important"
   get '/users/:user_id/verbs/:id/update_selected' => 'verbs#update_selected', as: "update_selected"
   get '/users/:user_id/achieve_records' => 'achieve_records#index', as: "user_achieve_records"
+  get '/users/:user_id/plan_allots/lists' => 'plan_allots#lists', as: "plan_allot_lists"
   resources :users, only: [:edit, :update, :destroy] do
     resources :verbs, only: [:index, :create, :update, :destroy]
     resource :achieve_record, only: [:show]
