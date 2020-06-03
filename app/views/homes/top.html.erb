@@ -1,24 +1,42 @@
-<h2>トップページ</h2>
-<h3>【最優先アクション】</h3>
-<% @important_verbs.each do |verb| %>
-  <p><%= verb.name %></p>
-  <%= record_toggle(verb) %>
-<% end %>
-<h3>【設定中アクション】</h3>
-<% @selected_verbs.each do |verb| %>
-  <p><%= verb.name %></p>
-  <%= record_toggle(verb) %>
-<% end %>
-<div class="switch red">
-    <a href="#"></a>
-</div>
-<div class="switch brue">
-    <a href="#"></a>
-</div>
-<div class="switch yellow">
-    <a href="#"></a>
-</div>
-<p id="RealtimeClockArea2"></p>
-
-
-
+<body class="top-page">
+  <section class="top-page__section">
+    <h2 class="top-page__title">
+      トップページ
+    </h2>
+    <div class="prioritize-action">
+      <h3　class="prioritize-action__title">
+        【最優先アクション】
+      </h3>
+      <% @important_verbs.each do |verb| %>
+        <p class="prioritize-action__actName">
+          <%= verb.name %>
+        </p>
+        <%= record_toggle(verb) %>
+        <div class="prioritize-action__doswitch">
+          <a href="#"></a>
+        </div>
+      <% end %>
+    </div>
+    <div class="setup-action">
+      <h3 class="setup-action__title">
+        【設定中アクション】
+      </h3>
+      <p id="RealtimeClockArea2" class="setup-action__now-time"></p>
+      <div class="setup-action__list">
+        <ul>
+          <% @selected_verbs.each do |verb| %>
+          <li class="setup-action__item">
+            <p class="setup-action__actName">
+              <%= verb.name %>
+            </p>
+            <div class="setup-action__doswitch">
+              <div id="test" class="setup-action__doswitch-body"></div>
+            </div>
+            <div class="setup-action__doswitchStand">
+            </div>
+            <%= record_toggle(verb) %>
+          </li>
+          <% end %>
+      </div>
+  </section>
+</body>

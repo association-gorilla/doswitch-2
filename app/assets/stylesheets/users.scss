@@ -2,11 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .switch {
-    position: relative;
-    margin: 0 auto;
     width: 200px;
     height: 50px;
-    border-radius: 100%;
+    border-radius: 50%;
 }
 
 /* 2. スイッチ本体 */
@@ -17,6 +15,18 @@
     margin: 0 auto;
     width: 160px;
     height: 40px;
+}
+
+.list ul{
+    margin-left: 200px;
+}
+
+.list li{
+    list-style: none;
+    position: relative;
+    float:left;
+    margin: 100px 0 0 50px;
+    width: 25%;
 }
 
 /* 押した時にボタンが押し込まれる */
@@ -37,20 +47,6 @@
     content: '';
 }
 
-/* 3. ラベル */
-.switch a span {
-    position: absolute;
-    top: -40px;
-    display: block;
-    width: 100%;
-    font-size: 14px;
-    color: #fff;
-    text-align: center;
-}
-
-.switch a.active span {
-    display: none;
-}
 
 .switch a::before {
     bottom: -20px;
@@ -63,54 +59,66 @@
 
 //スイッチその１
 
-.red {
+.switch_red {
     background-color: #ff0000;
 }
 
-.red a {
+.switch_red a {
     background-color: #dc143c;
 }
 
-.red a::before {
+.switch_red a::before {
     background-color: #dc143c;
 }
 
-.red a::after {
-    background-color: #ff0000;
+.switch_red a::after {
+    background-color: #000;
 }
 
 //スイッチその２
 
-.brue {
+.switch_brue {
     background-color: #0000ff;
 }
 
-.brue a {
+.switch_brue a {
     background-color: #0000cd;
 }
 
-.brue a::before {
+.switch_brue a::before {
     background-color: #0000cd;
 }
 
-.brue a::after {
+.switch_brue a::after {
     background-color: #0000ff;
 }
 
 //スイッチその3
 
-.yellow {
+.switch_yellow {
     background-color: #ffff00;
 }
 
-.yellow a {
+.switch_yellow a {
     background-color: #ffd700;
 }
 
-.yellow a::before {
+.switch_yellow a::before {
     background-color: #ffd700;
 }
 
-.yellow a::after {
+.switch_yellow a::after {
     background-color: #ffff00;
 }
+
+
+.useredit{
+    background-color: #e0ffff;
+}
+
+.editfield{
+    background-color: #fff;
+    opacity: 0.7;
+}
+
+
