@@ -3,11 +3,13 @@
 <% @important_verbs.each do |verb| %>
   <p><%= verb.name %></p>
   <%= record_toggle(verb) %>
+  <%= plan_time(verb) %>
 <% end %>
 <h3>【設定中アクション】</h3>
 <% @selected_verbs.each do |verb| %>
   <p><%= verb.name %></p>
   <%= record_toggle(verb) %>
+  <%= plan_time(verb) %>
 <% end %>
 <div class="switch red">
     <a href="#"></a>
