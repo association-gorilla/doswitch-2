@@ -1,5 +1,5 @@
 json.array!(@user_plan_allots) do |user_plan_allot|
-  json.title user_plan_allot.verb.name
+  json.title [user_plan_allot.verb.name, "　#{user_plan_allot.allot_h}時間#{user_plan_allot.allot_m}分"]
   json.start user_plan_allot.begin_date
   # 指定した日までを含むように+1する
   json.end user_plan_allot.end_date + 1
