@@ -1,2 +1,10 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
+/* スイッチクリックアクション */
+$(function(){
+    $('.setup-action__doswitch-body').on('click', function(event){
+       event.preventDefault(); 
+        $(this).toggleClass('is-active');
+    });
+});
