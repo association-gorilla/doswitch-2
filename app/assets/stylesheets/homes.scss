@@ -34,13 +34,6 @@
         width: 160px;
         height: 40px;
         background-color: #dcdcdc;
-
-        &is-active {
-            /* 選択時 */
-            height: 28px;
-            top: -6px;
-            background-color: #dc143c;
-        }
         
     }
 
@@ -78,21 +71,21 @@
 
 .is-active {
     /* 選択時スイッチ */
-    height: 28px;
-    top: -6px;
+    height: 22px;
+    top: 0;
     background-color: #dc143c;
-    display: block;
 }
 
-.is-active-a {
+.is-active .setup-action__doswitch-body-a {
     /* 選択時スイッチ */
     background-color: #dc143c;
 }
 
-.is-active-b {
+.is-active .setup-action__doswitch-body-b {
     /* 選択時スイッチ */
     background-color: #ff0000
 }
+
 
 .btn_area {
     width: 200px;
