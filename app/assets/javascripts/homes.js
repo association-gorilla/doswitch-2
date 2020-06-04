@@ -5,6 +5,15 @@
 $(function(){
     $('.setup-action__doswitch-body').on('click', function(event){
        event.preventDefault(); 
+       
         $(this).toggleClass('is-active');
+        $('#a').toggleClass('is-active-a');
+        $('#b').toggleClass('is-active-b');
+
+
     });
+
 });
+
+
+
