@@ -50,9 +50,11 @@ module HomesHelper
     plan_allot_time = plan_allot.allot_h * 3600 + plan_allot.allot_m * 60
     real_allot_time = recording_time_set(verb)
     if plan_allot_time < real_allot_time
-      tag.i(class: 'fas fa-check fa-3x check_achieve_after')
+      tag.i(class: 'fas fa-check fa-3x check_achieve_after') +
+        (tag.p '(目標達成！)')
     else
-      tag.i(class: 'fas fa-check fa-3x check_achieve_before')
+      tag.i(class: 'fas fa-check fa-3x check_achieve_before') +
+        (tag.p '(目標未達成)')
     end
   end
 end
