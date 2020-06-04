@@ -5,3 +5,8 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@font-face {
+    font-family: "dot";
+    src: font-url("rounded-mplus-1p-black.ttf") format("truetype"); 
+  }
