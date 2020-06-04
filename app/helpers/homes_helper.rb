@@ -32,6 +32,27 @@ module HomesHelper
     return if verb&.plan_allots.blank?
 
     plan_allot = verb.plan_allots.first
-    tag.p('計画時間 : ' + plan_allot.allot_h.to_s + '時間' + plan_allot.allot_m.to_s + '分')
+    tag.p('目標時間　' + set2fig(plan_allot.allot_h) + ':' + set2fig(plan_allot.allot_m) + ':00')
+  end
+
+  # 時間を2桁にして返すメソッド
+  def set2fig(num)
+    if num < 10
+      '0' + num.to_s
+    else
+      num.to_s
+    end
+  end
+
+  # プランを達成していたら表示する
+  def plan_clear(verb)
+    plan_allot = verb.plan_allots.first
+    plan_allot_time = plan_allot.allot_h * 3600 + plan_allot.allot_m * 60
+    real_allot_time = recording_time_set(verb)
+    if plan_allot_time < real_allot_time
+      tag.i(class: 'fas fa-check fa-3x check_achieve_after')
+    else
+      tag.i(class: 'fas fa-check fa-3x check_achieve_before')
+    end
   end
 end
