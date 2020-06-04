@@ -2,17 +2,16 @@
 // All this logic will automatically be available in application.js.
 
 /* スイッチクリックアクション */
-$(function(){
+$(function () {
+    var btn = $('.setup-action__doswitch-body')
+
     $('.setup-action__doswitch-body').on('click', function(event){
-       event.preventDefault(); 
-       
-        $(this).toggleClass('is-active');
-        $('#a').toggleClass('is-active-a');
-        $('#b').toggleClass('is-active-b');
-
-
+        // btn.removeClass('is-active'); 
+        event.preventDefault(); 
+        $(this).toggleClass('is-active');  
     });
 
+reser()
 });
 
 
