@@ -1,7 +1,13 @@
 <h2><%= @active_records[0].created_at.strftime("%m月%d日") %>の記録</h2>
-	<p>行動と実行時間</p>
+	<h3>【行動と実行時間】</h3>
   <% @active_records.each do |active_record| %>
     <%= active_record.verb_name %>
     <%= Time.at(active_record.allot).utc.strftime('%X') %>
+  <% end %>
+  <% if @plan_allots %>
+    <h3>【目標の達成度】</h3>
+    <% @plan_allots.each do |plan_allot| %>
+      <%= plan_compare(plan_allot, @select_day) %>
+    <% end %>
   <% end %>
 <%= pie_chart @action_chart %>
