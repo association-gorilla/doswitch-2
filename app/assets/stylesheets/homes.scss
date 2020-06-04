@@ -3,40 +3,49 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.setup-action{
-    &__actName{
+.setup-action {
+    &__actName {
         margin-bottom: 80px;
         text-align: center;
     }
-    &__item{
+
+    &__item {
         float: left;
         margin: 50px 0 0 30px;
         width: 25%;
         list-style: none;
     }
-    &__doswitch{/* スイッチ台座部分 */
+
+    &__doswitch {
+        /* スイッチ台座部分 */
         width: 200px;
         height: 50px;
         margin: 0 auto;
         border-radius: 50%;
-        background-color:  #d3d3d3;
+        background-color: #d3d3d3;
     }
-    &__doswitch-body{/* スイッチ側面一部（両端） */
+
+    &__doswitch-body {
+        /* スイッチ側面一部（両端） */
         position: relative;
         top: -18px;
         display: block;
         margin: 0 auto;
         width: 160px;
         height: 40px;
-        background-color:  #dcdcdc;
-        &is-active{/* 選択時 */
+        background-color: #dcdcdc;
+
+        &is-active {
+            /* 選択時 */
             height: 28px;
             top: -6px;
             background-color: #dc143c;
         }
     }
+
     &__doswitch-body::before,
-    &__doswitch-body::after {/* スイッチ底面、頭構成部分 */
+    &__doswitch-body::after {
+        /* スイッチ底面、頭構成部分 */
         position: absolute;
         left: 0;
         display: block;
@@ -45,31 +54,49 @@
         border-radius: 100%;
         content: '';
     }
-    &__doswitch-body::before {/* スイッチ底面：位置調整とスタイル */
+
+    &__doswitch-body::before {
+        /* スイッチ底面：位置調整とスタイル */
         bottom: -20px;
-        background-color:  #dcdcdc;
-        &is-active{/* 選択時 */
+        background-color: #dcdcdc;
+
+        &is-active {
+            /* 選択時 */
             background-color: #dc143c;
         }
-    }    
-    &__doswitch-body::after {/* スイッチ頭：位置調整とスタイル */
+    }
+
+    &__doswitch-body::after {
+        /* スイッチ頭：位置調整とスタイル */
         top: -20px;
         background-color: #f5f5f5;
-        &is-active{/* 選択時 */
+
+        &is-active {
+            /* 選択時 */
             background-color: #ff0000;
         }
     }
-    &__doswitch-body:active{/* クリックアニメーション */
+
+    &__doswitch-body:active {
+        /* クリックアニメーション */
         height: 20px;
         top: 2px;
-    }  
+    }
 }
 
-.is-active{/* 選択時スイッチ */
+.is-active {
+    /* 選択時スイッチ */
     height: 28px;
     top: -6px;
     background-color: #dc143c;
     display: block;
 }
 
+.check_achieve_before {
+    color: gray;
+    opacity: 0.6;
+}
 
+.check_achieve_after {
+    color: lightgreen;
+}
