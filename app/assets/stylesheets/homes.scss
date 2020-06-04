@@ -41,10 +41,11 @@
             top: -6px;
             background-color: #dc143c;
         }
+        
     }
 
-    &__doswitch-body::before,
-    &__doswitch-body::after {
+    &__doswitch-body-a,
+    &__doswitch-body-b {
         /* スイッチ底面、頭構成部分 */
         position: absolute;
         left: 0;
@@ -55,26 +56,17 @@
         content: '';
     }
 
-    &__doswitch-body::before {
+    &__doswitch-body-a {
         /* スイッチ底面：位置調整とスタイル */
         bottom: -20px;
         background-color: #dcdcdc;
 
-        &is-active {
-            /* 選択時 */
-            background-color: #dc143c;
-        }
     }
 
-    &__doswitch-body::after {
+    &__doswitch-body-b {
         /* スイッチ頭：位置調整とスタイル */
         top: -20px;
         background-color: #f5f5f5;
-
-        &is-active {
-            /* 選択時 */
-            background-color: #ff0000;
-        }
     }
 
     &__doswitch-body:active {
@@ -90,6 +82,16 @@
     top: -6px;
     background-color: #dc143c;
     display: block;
+}
+
+.is-active-a {
+    /* 選択時スイッチ */
+    background-color: #dc143c;
+}
+
+.is-active-b {
+    /* 選択時スイッチ */
+    background-color: #ff0000
 }
 
 .btn_area {
