@@ -10,7 +10,9 @@ class AchieveRecordsController < ApplicationController
   end
 
   def show
-    @active_records = AchieveRecord.where(created_at: Time.zone.parse(params[:day]).all_day)
+    @select_day = Time.zone.parse(params[:day]).all_day
+    @active_records = AchieveRecord.where(created_at: @select_day)
     @action_chart = AchieveRecord.allot_distribution(@active_records)
+    @plan_allots = PlanAllot.where(user_id: current_user.id, created_at: @select_day)
   end
 end
