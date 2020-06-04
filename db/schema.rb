@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_05_26_073800) do
 
-  create_table "achieve_rates", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "verb_id"
-    t.float "date_rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "achieve_records", force: :cascade do |t|
     t.integer "user_id"
     t.string "verb_name"
@@ -58,16 +50,20 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
 
   create_table "plan_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
-    t.integer "allot"
-    t.datetime "term"
+    t.integer "user_id", null: false
+    t.integer "allot_h"
+    t.integer "allot_m"
+    t.date "begin_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "real_allots", force: :cascade do |t|
     t.integer "verb_id", null: false
+    t.integer "user_id", null: false
     t.integer "allot"
-    t.datetime "term"
+    t.integer "term"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
-    t.text "image_id"
+    t.string "image_id"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -91,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.index ["email"], name: "index_users_on_email", unique: true, where: "deleted_at IS NULL"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

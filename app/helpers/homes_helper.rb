@@ -26,4 +26,12 @@ module HomesHelper
     today_real_allot = RealAllot.where(verb_id: verb.id, created_at: Time.zone.now.in_time_zone('Tokyo').all_day).last
     today_real_allot.allot if today_real_allot.present?
   end
+
+  # 計画時間が制定してあれば表示する
+  def plan_time(verb)
+    return if verb&.plan_allots.blank?
+
+    plan_allot = verb.plan_allots.first
+    tag.p('計画時間 : ' + plan_allot.allot_h.to_s + '時間' + plan_allot.allot_m.to_s + '分')
+  end
 end

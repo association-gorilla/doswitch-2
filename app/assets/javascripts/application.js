@@ -171,8 +171,8 @@ $(function () {
     //終了時刻がないイベントの表示間隔
     defaultTimedEventDuration: '24:00:00',
     buttonText: {
-      prev: '前',
-      next: '次',
+      prev: '前月',
+      next: '次月',
       prevYear: '前年',
       nextYear: '翌年',
       today: '今日',
@@ -180,16 +180,12 @@ $(function () {
       week: '週',
       day: '日'
     },
-    // 日付クリックイベント
-    dayClick: function () {
-      alert('日付クリックイベント');
-    },
     // Drag & Drop & Resize
-    editable: true,
+    editable: false,
     //イベントの色を変える
-    eventColor: '#87cefa',
+    eventColor: '#34cefa',
     //イベントの文字色を変える
-    eventTextColor: '#ffffff',
+    eventTextColor: '#000000',
     eventRender: function (event, element) {
       element.css("font-size", "0.8em");
       element.css("padding", "5px");

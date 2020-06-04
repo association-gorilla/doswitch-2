@@ -9,6 +9,10 @@ class PlanAllotsController < ApplicationController
     @important_verbs = Verb.where(user_id: current_user.id, important: true)
   end
 
+  def lists
+    @user_plan_allots = PlanAllot.where(user_id: current_user.id)
+  end
+
   def create
     plan_allot = PlanAllot.new(plan_allot_params)
     plan_allot.user_id = current_user.id
