@@ -99,7 +99,7 @@ Layout/EmptyLinesAroundClassBody:
 
 # def~endの間に入れることが可能な行数を設定
 Metrics/MethodLength:
-  Max: 15
+  Max: 30
   Exclude:
 
 Metrics/BlockLength:
