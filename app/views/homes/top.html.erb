@@ -4,7 +4,7 @@
       トップページ
     </h2>
     <div class="prioritize-action">
-      <h3　class="prioritize-action__title">
+      <h3 class="prioritize-action__title">
         【最優先アクション】
       </h3>
       <% @important_verbs.each do |verb| %>
@@ -32,11 +32,12 @@
               <%= verb.name %>
             </p>
             <div class="setup-action__doswitch">
-              <div id="test" class="setup-action__doswitch-body"></div>
+              <%= record_toggle(verb) %>
+              <%# <div id="test" class="setup-action__doswitch-body"></div> %>
             </div>
             <div class="setup-action__doswitchStand">
             </div>
-            <%= record_toggle(verb) %>
+            <%# record_toggle(verb) %>
             <%= plan_time(verb) %>
           </li>
           <% end %>
