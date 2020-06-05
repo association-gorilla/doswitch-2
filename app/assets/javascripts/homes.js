@@ -6,9 +6,9 @@ $(function () {
     var btn = $('.setup-action__doswitch-body')
 
     $('.setup-action__doswitch-body').on('click', function(event){
-        // btn.removeClass('is-active'); 
+        // btn.removeClass('is-switch-active'); 
         event.preventDefault(); 
-        $(this).toggleClass('is-active');  
+        $(this).toggleClass('is-switch-active');  
     });
 
 reser()

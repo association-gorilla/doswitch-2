@@ -25,13 +25,31 @@
         list-style: none;
     }
 
-    &__doswitch {
+    &__doswitch{
+        position: relative;
+    }
+
+    &__doswitchStandTop {
         /* スイッチ台座部分 */
-        width: 200px;
+        width: 220px;
         height: 50px;
         margin: 0 auto;
         border-radius: 50%;
-        background-color: #d3d3d3;
+        background-color: #fff7b3;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__doswitchStandBody{/* スイッチスタンド */
+        width: 220px;
+        height: 120px;
+        margin: 0 auto;
+        background-color: #fff599;
+        border-radius: 0 0 50% 50% / 0 0 33.3% 33.3%; 
+        position: absolute;
+        left:28px;
+        bottom: -90px;
+
     }
 
     &__doswitch-body {
@@ -43,7 +61,11 @@
         width: 160px;
         height: 40px;
         background-color: #dcdcdc;
-        
+        &:active {
+            /* クリックアニメーション */
+            height: 20px;
+            top: 2px;
+        }
     }
 
     &__doswitch-body-a,
@@ -71,26 +93,23 @@
         background-color: #f5f5f5;
     }
 
-    &__doswitch-body:active {
-        /* クリックアニメーション */
-        height: 20px;
-        top: 2px;
-    }
+  
+
 }
 
-.is-active {
+.is-switch-active {
     /* 選択時スイッチ */
     height: 22px;
     top: 0;
     background-color: #dc143c;
 }
 
-.is-active .setup-action__doswitch-body-a {
+.is-switch-active .setup-action__doswitch-body-a {
     /* 選択時スイッチ */
     background-color: #dc143c;
 }
 
-.is-active .setup-action__doswitch-body-b {
+.is-switch-active .setup-action__doswitch-body-b {
     /* 選択時スイッチ */
     background-color: #ff0000
 }
