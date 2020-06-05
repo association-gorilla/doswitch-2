@@ -56,8 +56,8 @@ module HomesHelper
   # プランを達成していたら表示する
   def plan_clear(verb)
     plan_allot = verb.plan_allots.first
-    plan_allot_time = plan_allot.allot_h * 3600 + plan_allot.allot_m * 60
-    real_allot_time = recording_time_set(verb)
+    return unless plan_allot_time = plan_allot.allot_h * 3600 + plan_allot.allot_m * 60
+    return unless real_allot_time = recording_time_set(verb)
     if plan_allot_time < real_allot_time
       tag.i(class: 'fas fa-check fa-3x check_achieve_after') +
         (tag.p '(目標達成！)')
