@@ -136,12 +136,6 @@ $(document).ready(function () {
 });
 
 // カレンダー表示
-// $(function () {
-//   $('#calendar').fullCalendar({
-//     events: '/plan_allots.json',
-//   });
-// });
-
 $(function () {
   // 画面遷移を検知
   // $(document).on('turbolinks:load', function () {

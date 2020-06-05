@@ -9,6 +9,10 @@ class CreatePlanAllots < ActiveRecord::Migration[5.2]
       # 取り組み日数
       t.date :begin_date
       t.date :end_date
+      # ご褒美
+      t.string :profit
+      # ペナルティ
+      t.string :penalty
       t.timestamps
     end
   end
