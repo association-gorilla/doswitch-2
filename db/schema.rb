@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
     t.integer "allot_m"
     t.date "begin_date"
     t.date "end_date"
+    t.string "profit"
+    t.string "penalty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,14 +66,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_073800) do
     t.integer "user_id", null: false
     t.integer "allot"
     t.integer "term"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "rewards", force: :cascade do |t|
-    t.integer "plan_allot_id"
-    t.string "profit"
-    t.string "penalty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

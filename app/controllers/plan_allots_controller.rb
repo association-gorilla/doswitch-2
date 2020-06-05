@@ -6,7 +6,7 @@ class PlanAllotsController < ApplicationController
     @user_plan_allots = PlanAllot.where(user_id: current_user.id)
     @today_plan_allots = PlanAllot.today_plan_search(@user_plan_allots)
     @plan_allot = PlanAllot.new
-    @important_verbs = Verb.where(user_id: current_user.id, important: true)
+    @selected_verbs = Verb.where(user_id: current_user.id, selected: true)
   end
 
   def lists
@@ -47,6 +47,6 @@ class PlanAllotsController < ApplicationController
   private
 
   def plan_allot_params
-    params.require(:plan_allot).permit(:user_id, :verb_id, :allot_h, :allot_m, :begin_date, :end_date)
+    params.require(:plan_allot).permit(:user_id, :verb_id, :allot_h, :allot_m, :begin_date, :end_date, :profit, :penalty)
   end
 end
