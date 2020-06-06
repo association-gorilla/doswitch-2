@@ -6,7 +6,7 @@
 .top-page{
 
     &__title{
-        font-family: "dot";
+        font-family: "自家製Rounded M+";
         font-size: 100px;
         text-align: center;
         margin: 50px 0;
@@ -21,6 +21,11 @@
         display: block;
         clear: both;
         content: "";    
+    }
+
+    &__title{
+        font-family: "Rounded M+";
+        text-align: center;
     }
 
     &__actName {

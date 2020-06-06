@@ -6,7 +6,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//アプリタイトル題名
+
 @font-face {
-    font-family: "dot";
+    font-family: "自家製Rounded M+";
     src: font-url("rounded-mplus-1p-black.ttf") format("truetype"); 
+  }
+
+  //見出し
+
+  @font-face {
+    font-family: "Rounded M+";
+    src: font-url("rounded-mplus-1m-regular.ttf") format("truetype"); 
   }
