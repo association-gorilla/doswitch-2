@@ -6,26 +6,38 @@ module HomesHelper
     when true
       # real_allotがまだ無い、もしくは値がnilのときに実行
       if recording_time_set(verb).blank?
-        tag.div(class: 'setup-action__doswitch-body') do |tag|
-          tag.a('', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn_area')
+        tag.a('', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'setup-action__doswitch-body') do |tag|
+          tag.div(class: 'setup-action__doswitch-body-a') +
+            tag.div(class: 'setup-action__doswitch-body-b')
         end +
-          tag.a('計画スタート', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn btn-info') +
+          # tag.div(class: '') do |tag|
+          #   tag.a('', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn_area')
+          # end +
+          # tag.a('計画スタート', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn btn-info') +
           tag.p('現在の実行時間　00:00:00')
       # それ以外はreal_allotの値を表示する
       else
-        tag.div(class: 'setup-action__doswitch-body') do |tag|
-          tag.a('', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn_area')
+        tag.a('', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'setup-action__doswitch-body') do |tag|
+          tag.div(class: 'setup-action__doswitch-body-a') +
+            tag.div(class: 'setup-action__doswitch-body-b')
         end +
-          tag.a('計画スタート', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn btn-info') +
+          # tag.div(class: '') do |tag|
+          #   tag.a('', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn_area')
+          # end +
+          # tag.a('計画スタート', href: record_start_path(user_id: current_user.id, id: verb.id), class: 'btn btn-info') +
           tag.p('現在の実行時間　' + Time.at(recording_time_set(verb)).utc.strftime('%X'))
       end
     # 計測実行中の場合
     when false
-      tag.div(class: 'setup-action__doswitch-body') do |tag|
-        tag.a('', href: record_stop_path(user_id: current_user.id, id: verb.id), class: 'btn_area')
+      tag.a('', href: record_stop_path(user_id: current_user.id, id: verb.id), class: 'setup-action__doswitch-body is-switch-active') do |tag|
+        tag.div(class: 'setup-action__doswitch-body-a') +
+          tag.div(class: 'setup-action__doswitch-body-b')
       end +
-        tag.a('計画ストップ', href: record_stop_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning') +
-        (tag.input id: 'record-time', type: 'hidden', value: recording_time_set(verb)) +
+        # tag.div(class: '') do |tag|
+        #   tag.a('', href: record_stop_path(user_id: current_user.id, id: verb.id), class: 'btn_area')
+        # end +
+        # tag.a('計画ストップ', href: record_stop_path(user_id: current_user.id, id: verb.id), class: 'btn btn-warning') +
+        # (tag.input id: 'record-time', type: 'hidden', value: recording_time_set(verb)) +
         (tag.p id: 'record_time_output')
     end
   end
