@@ -7,17 +7,32 @@
       <h3 class="prioritize-action__title">
         【最優先アクション】
       </h3>
+      <div class="prioritize-action__list">
+      <ul>
       <% @important_verbs.each do |verb| %>
+      <li class="setup-action__item">
         <p class="prioritize-action__actName">
           <%= verb.name %>
         </p>
-        <%= record_toggle(verb) %>
-        <div class="prioritize-action__doswitch">
-          <a href="#"></a>
-        </div>
-        <%= plan_time(verb) %>
-        <%= plan_clear(verb) %>
+            <div class="prioritize-action__doswitch">
+              <div class="prioritize-action__doswitchStandTop">
+                <%# <%= record_toggle(verb) %> 
+                <div class="prioritize-action__doswitch-body">
+                    <div class="prioritize-action__doswitch-body-a"></div>
+                    <div class="prioritize-action__doswitch-body-b"></div>
+                </div> 
+              </div>
+              <div class="prioritize-action__doswitchStandBody">
+              </div>
+            </div>
+    <%#    <%= record_toggle(verb) %> 
+
+        <%# <%= plan_time(verb) %>
+        <%# <%= plan_clear(verb) %> 
+        </li>
       <% end %>
+      </ul>
+      </div>
     </div>
     <div class="setup-action">
       <h3 class="setup-action__title">
