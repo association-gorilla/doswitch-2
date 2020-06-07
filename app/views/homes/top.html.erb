@@ -17,21 +17,15 @@
         <p class="prioritize-action__actName">
           <%= verb.name %>
         </p>
-            <div class="prioritize-action__doswitch">
-              <div class="prioritize-action__doswitchStandTop">
-                <%# <%= record_toggle(verb) %> 
-                <div class="prioritize-action__doswitch-body">
-                    <div class="prioritize-action__doswitch-body-a"></div>
-                    <div class="prioritize-action__doswitch-body-b"></div>
-                </div> 
-              </div>
-              <div class="prioritize-action__doswitchStandBody">
-              </div>
+          <div class="prioritize-action__doswitch">
+            <div class="prioritize-action__doswitchStandTop">
+              <%= prioritize_action_record_toggle(verb) %>
             </div>
-    <%#    <%= record_toggle(verb) %> 
-
-        <%# <%= plan_time(verb) %>
-        <%# <%= plan_clear(verb) %> 
+            <div class="prioritize-action__doswitchStandBody">
+            </div>
+          </div>
+        <%= plan_time(verb) %>
+        <%= plan_clear(verb) %>
         </li>
       <% end %>
       </ul>
@@ -51,12 +45,12 @@
             </p>
             <div class="setup-action__doswitch">
               <div class="setup-action__doswitchStandTop">
-                <%= record_toggle(verb) %>
+                <%= setup_action_record_toggle(verb) %>
               </div>
               <div class="setup-action__doswitchStandBody">
               </div>
             </div>
-            <%# record_toggle(verb) %>
+            <%# setup_action_record_toggle(verb) %>
             <%= plan_time(verb) %>
           </li>
           <% end %>

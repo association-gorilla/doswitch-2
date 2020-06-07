@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.top-page{
+.top-page {
 
     &__main-title{
         margin: 80px 0 100px;
@@ -34,10 +34,10 @@
 .prioritize-action,
 .setup-action {
 
-    &::after{
+    &::after {
         display: block;
         clear: both;
-        content: "";    
+        content: "";
     }
 
     &__title{
@@ -52,7 +52,7 @@
     }
 
 
-    &__doswitch{
+    &__doswitch {
         position: relative;
     }
 
@@ -66,14 +66,14 @@
         z-index: 1;
     }
 
-    &__doswitchStandBody{/* スイッチスタンド */
+    &__doswitchStandBody {
+        /* スイッチスタンド */
         width: 220px;
         height: 120px;
         margin: 0 auto;
         border-radius: 5px 5px 50% 50% / 5px 5px 33.3% 33.3%; 
         position: absolute;
         box-shadow: 0 3px 3px;
-
 
     }
 
@@ -86,6 +86,7 @@
         width: 160px;
         height: 40px;
         background-color: #dcdcdc;
+
         &:active {
             /* クリックアニメーション */
             height: 20px;
@@ -117,6 +118,7 @@
     }
 
 }
+
 
 .prioritize-action{
 
@@ -190,10 +192,14 @@
     background-color: #ff0000
 }
 
+.is-switch-active .prioritize-action__doswitch-body-a {
+    /* 選択時スイッチ */
+    background-color: #dc143c;
+}
 
-.btn_area {
-    width: 200px;
-    height: 100px;
+.is-switch-active .prioritize-action__doswitch-body-b {
+    /* 選択時スイッチ */
+    background-color: #ff0000
 }
 
 .check_achieve_before {
