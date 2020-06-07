@@ -1,16 +1,19 @@
 <body class="top-page">
   <section class="top-page__section">
+  <div class="top-page__main-title">
     <h2 class="top-page__title">
-      DoooSwitch
+    <span>D</span>ooo<span>S</span>witch
     </h2>
+    <p class="top-page__app-discription">〜行動計測アプリ〜</p>
+    </div>
     <div class="prioritize-action">
       <h3 class="prioritize-action__title">
         【最優先アクション】
       </h3>
       <div class="prioritize-action__list">
-      <ul>
+      <ul class="prioritize-action__list-ul">
       <% @important_verbs.each do |verb| %>
-      <li class="setup-action__item">
+      <li class="prioritize-action__item">
         <p class="prioritize-action__actName">
           <%= verb.name %>
         </p>
@@ -34,7 +37,7 @@
       </h3>
       <p id="RealtimeClockArea2" class="setup-action__now-time"></p>
       <div class="setup-action__list">
-        <ul>
+        <ul class="setup-action__list-ul">
           <% @selected_verbs.each do |verb| %>
           <li class="setup-action__item">
             <p class="setup-action__actName">
