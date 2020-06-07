@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.top-page{
+.top-page {
 
-    &__title{
+    &__title {
         font-family: "dot";
         font-size: 100px;
         text-align: center;
@@ -17,10 +17,10 @@
 .prioritize-action,
 .setup-action {
 
-    &::after{
+    &::after {
         display: block;
         clear: both;
-        content: "";    
+        content: "";
     }
 
     &__actName {
@@ -35,7 +35,7 @@
         list-style: none;
     }
 
-    &__doswitch{
+    &__doswitch {
         position: relative;
     }
 
@@ -50,14 +50,15 @@
         z-index: 1;
     }
 
-    &__doswitchStandBody{/* スイッチスタンド */
+    &__doswitchStandBody {
+        /* スイッチスタンド */
         width: 220px;
         height: 120px;
         margin: 0 auto;
         background-color: #fff599;
-        border-radius: 0 0 50% 50% / 0 0 33.3% 33.3%; 
+        border-radius: 0 0 50% 50% / 0 0 33.3% 33.3%;
         position: absolute;
-        left:28px;
+        left: 28px;
         bottom: -90px;
 
     }
@@ -71,6 +72,7 @@
         width: 160px;
         height: 40px;
         background-color: #dcdcdc;
+
         &:active {
             /* クリックアニメーション */
             height: 20px;
@@ -104,7 +106,7 @@
 
 }
 
-.prioritize-action{
+.prioritize-action {
     margin-bottom: 150px;
 }
 
@@ -125,10 +127,14 @@
     background-color: #ff0000
 }
 
+.is-switch-active .prioritize-action__doswitch-body-a {
+    /* 選択時スイッチ */
+    background-color: #dc143c;
+}
 
-.btn_area {
-    width: 200px;
-    height: 100px;
+.is-switch-active .prioritize-action__doswitch-body-b {
+    /* 選択時スイッチ */
+    background-color: #ff0000
 }
 
 .check_achieve_before {
