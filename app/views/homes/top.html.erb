@@ -1,34 +1,35 @@
 <body class="top-page">
   <section class="top-page__section">
-  <div class="top-page__main-title">
-    <h2 class="top-page__title">
-    <span>D</span>ooo<span>S</span>witch
-    </h2>
-    <p class="top-page__app-discription">〜行動計測アプリ〜</p>
+    <div class="top-page__main-title">
+      <h2 class="top-page__title">
+        <span>D</span>ooo<span>S</span>witch
+      </h2>
+      <p class="top-page__app-discription">〜行動計測アプリ〜</p>
     </div>
     <div class="prioritize-action">
       <h3 class="prioritize-action__title">
         【最優先アクション】
       </h3>
       <div class="prioritize-action__list">
-      <ul class="prioritize-action__list-ul">
-      <% @important_verbs.each do |verb| %>
-      <li class="prioritize-action__item">
-        <p class="prioritize-action__actName">
-          <%= verb.name %>
-        </p>
-          <div class="prioritize-action__doswitch">
-            <div class="prioritize-action__doswitchStandTop">
-              <%= prioritize_action_record_toggle(verb) %>
-            </div>
-            <div class="prioritize-action__doswitchStandBody">
-            </div>
-          </div>
-        <%= plan_time(verb) %>
-        <%= plan_clear(verb) %>
-        </li>
-      <% end %>
-      </ul>
+        <ul class="prioritize-action__list-ul">
+          <% @important_verbs.each do |verb| %>
+            <li class="prioritize-action__item">
+              <p class="prioritize-action__actName">
+                <%= verb.name %>
+              </p>
+              <%= current_execution_time(verb) %>
+              <%= plan_time(verb) %>
+              <%= plan_clear(verb) %>
+              <div class="prioritize-action__doswitch">
+                <div class="prioritize-action__doswitchStandTop">
+                  <%= prioritize_action_record_toggle(verb) %>
+                </div>
+                <div class="prioritize-action__doswitchStandBody">
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <div class="setup-action">
@@ -39,21 +40,24 @@
       <div class="setup-action__list">
         <ul class="setup-action__list-ul">
           <% @selected_verbs.each do |verb| %>
-          <li class="setup-action__item">
-            <p class="setup-action__actName">
-              <%= verb.name %>
-            </p>
-            <div class="setup-action__doswitch">
-              <div class="setup-action__doswitchStandTop">
-                <%= setup_action_record_toggle(verb) %>
+            <li class="setup-action__item">
+              <p class="setup-action__actName">
+                <%= verb.name %>
+              </p>
+              <%= current_execution_time(verb) %>
+              <%= plan_time(verb) %>
+              <%= plan_clear(verb) %>
+              <div class="setup-action__doswitch">
+                <div class="setup-action__doswitchStandTop">
+                  <%= setup_action_record_toggle(verb) %>
+                </div>
+                <div class="setup-action__doswitchStandBody">
+                </div>
               </div>
-              <div class="setup-action__doswitchStandBody">
-              </div>
-            </div>
-            <%# setup_action_record_toggle(verb) %>
-            <%= plan_time(verb) %>
-          </li>
+            </li>
           <% end %>
+        </ul>
       </div>
+    </div>
   </section>
 </body>
