@@ -6,8 +6,8 @@
 .top-page{
 
     &__main-title{
-        margin: 80px 0 100px;
-        font-size: 100px;
+        margin-top: 20px;
+        font-size: 80px;
     }
 
     &__title{
@@ -22,17 +22,34 @@
             font-family: "自家製Rounded M+";
         }
     }
+
+    &__furigana-do{
+        font-size: 0.3em;
+        color: #6495ed;
+        position: absolute;
+            left: 18em;
+    }
+
+    &__furigana-switch{
+        font-size: 0.3em;
+        color: #6495ed;
+        position: absolute;
+            right: 16.5em;
+    }
+
     &__app-discription{
         position:　absolute;
         margin-top: -0.5em;
+        color: #696969;
         font-size: 0.25em;
         text-align: center;
     }
 }
 
-
 .prioritize-action,
 .setup-action {
+
+    text-align: center;
 
     &::after{
         display: block;
@@ -41,16 +58,19 @@
     }
 
     &__title{
+        position: relative;
+        display: inline-block;
+        padding: 0.2em 0.5em;
+        border-radius: 2em;
         font-family: "Rounded M+";
         text-align: center;
-        padding-left: 25px;
+        border: dashed 2px white;
     }
 
     &__actName {
-        margin-bottom: 80px;
+        margin-bottom: 4em;
         text-align: center;
     }
-
 
     &__doswitch{
         position: relative;
@@ -58,23 +78,21 @@
 
     &__doswitchStandTop {
         /* スイッチ台座部分 */
+        position: relative;
         width: 220px;
         height: 50px;
         margin: 0 auto;
         border-radius: 50%;
-        position: relative;
         z-index: 1;
     }
 
     &__doswitchStandBody{/* スイッチスタンド */
+        position: absolute;
         width: 220px;
         height: 120px;
         margin: 0 auto;
         border-radius: 5px 5px 50% 50% / 5px 5px 33.3% 33.3%; 
-        position: absolute;
         box-shadow: 0 3px 3px;
-
-
     }
 
     &__doswitch-body {
@@ -115,17 +133,21 @@
         top: -20px;
         background-color: #f5f5f5;
     }
-
 }
 
 .prioritize-action{
 
+    &__title{
+        background: #ffa899;
+        box-shadow: 0px 0px 0px 5px #ffa899;
+    }
+
     &__list-ul{
-        margin: 50px 0 0 70px;
+        margin: 0.5em 0 0 6em;
     }
 
     &__item {
-        margin-right: 20px;
+        margin-right: 10px;
         float: left;
         width: 45%;
         list-style: none;
@@ -144,8 +166,15 @@
 
 .setup-action{
 
+    margin: 6em 0 8em;
+
+    &__title{
+        background-color: #ffd280;
+        box-shadow: 0px 0px 0px 5px #ffd280;
+    }
+
     &__list-ul{
-        margin: 50px 0 0 80px;
+        margin: -3em 0 0 80px;
     }
 
     &__item {
@@ -167,12 +196,6 @@
 }
 
 
-
-
-.prioritize-action{
-    margin-bottom: 150px;
-}
-
 .is-switch-active {
     /* 選択時スイッチ */
     height: 22px;
@@ -189,7 +212,6 @@
     /* 選択時スイッチ */
     background-color: #ff0000
 }
-
 
 .btn_area {
     width: 200px;
