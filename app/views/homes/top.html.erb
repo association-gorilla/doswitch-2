@@ -50,15 +50,11 @@
               <%= verb.name %>
             </p>
             <div class="setup-action__doswitch">
-            <div class="setup-action__doswitchStandTop doswich">
-                <%# <%= record_toggle(verb) %> 
-              <div class="setup-action__doswitch-body">
-                    <div class="setup-action__doswitch-body-a"></div>
-                    <div class="setup-action__doswitch-body-b"></div>
-              </div> 
-            </div>
-            <div class="setup-action__doswitchStandBody">
-            </div>
+              <div class="setup-action__doswitchStandTop">
+                <%= record_toggle(verb) %>
+              </div>
+              <div class="setup-action__doswitchStandBody">
+              </div>
             </div>
             <%# record_toggle(verb) %>
             <%= plan_time(verb) %>
