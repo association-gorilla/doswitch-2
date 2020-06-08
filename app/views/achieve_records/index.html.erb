@@ -2,3 +2,4 @@
   <% @record_days.each do |record_day| %>
     <p><%= link_to "#{record_day}の記録", user_achieve_record_path(user_id: current_user.id, day: record_day) %></p>
   <% end %>
+  <%= render partial: 'layouts/nav' %>
