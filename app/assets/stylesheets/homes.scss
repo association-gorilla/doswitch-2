@@ -6,7 +6,7 @@
 .top-page {
 
     &__main-title{
-        margin-top: 20px;
+        margin: 20px 0 0.2em;
         font-size: 80px;
     }
 
@@ -68,7 +68,7 @@
     }
 
     &__actName {
-        margin-bottom: 4em;
+        margin-bottom: 2em;
         text-align: center;
     }
 
@@ -89,7 +89,7 @@
     &__doswitchStandBody{/* スイッチスタンド */
         position: absolute;
         width: 220px;
-        height: 120px;
+        height: 100px;
         margin: 0 auto;
         border-radius: 5px 5px 50% 50% / 5px 5px 33.3% 33.3%; 
         box-shadow: 0 3px 3px;
@@ -162,13 +162,13 @@
     &__doswitchStandBody{
         background-color: #ffb6c1;
         left: 130px;
-        bottom: -90px;
+        bottom: -70px;
     }
     }
 
 .setup-action{
 
-    margin: 6em 0 8em;
+    margin: 4em 0 6em;
 
     &__title{
         background-color: #ffd280;
@@ -193,7 +193,7 @@
     &__doswitchStandBody{
         background-color: #fff7b3; 
         left: 23px;
-        bottom: -90px; 
+        bottom: -75px; 
     }
 }
 
