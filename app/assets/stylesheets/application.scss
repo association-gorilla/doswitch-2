@@ -34,8 +34,15 @@
   font-family: "Rounded M+";
 }
 
-.nav{
+//ナビ
+
+.nav-list{
+
   text-align: center;
+
+  &__item{
+    display: inline-block;
+  }
 }
 
 .nav{}
