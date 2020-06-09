@@ -20,15 +20,8 @@
               <p class="prioritize-action__actName">
                 <%= verb.name %>
               </p>
-              <%= current_execution_time(verb) %>
-              <%= plan_time(verb) %>
-              <%= plan_clear(verb) %>
-              <div class="prioritize-action__doswitch">
-                <div class="prioritize-action__doswitchStandTop">
-                  <%= prioritize_action_record_toggle(verb) %>
-                </div>
-                <div class="prioritize-action__doswitchStandBody">
-                </div>
+              <div id="home_prioritize_action_<%= verb.id %>">
+                <%= render partial: 'homes/prioritize_action',  locals: { verb: verb} %>
               </div>
             </li>
           <% end %>
@@ -47,15 +40,8 @@
               <p class="setup-action__actName">
                 <%= verb.name %>
               </p>
-              <%= current_execution_time(verb) %>
-              <%= plan_time(verb) %>
-              <%= plan_clear(verb) %>
-              <div class="setup-action__doswitch">
-                <div class="setup-action__doswitchStandTop">
-                  <%= setup_action_record_toggle(verb) %>
-                </div>
-                <div class="setup-action__doswitchStandBody">
-                </div>
+              <div id="home_setup_action_<%= verb.id %>">
+                <%= render partial: 'homes/setup_action',  locals: { verb: verb} %>
               </div>
             </li>
 
