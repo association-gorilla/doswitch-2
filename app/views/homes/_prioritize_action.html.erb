@@ -1,0 +1,21 @@
+<%= current_execution_time(verb) %>
+<%= plan_time(verb) %>
+<%= plan_clear(verb) %>
+<div class="prioritize-action__doswitch">
+  <div class="prioritize-action__doswitchStandTop">
+    <%# prioritize_action_record_toggle(verb) %>
+    <% if  DetailRealAllot.find_by(verb_id: verb.id, end_time: nil).blank? %>
+      <%= link_to record_start_path(user_id: current_user.id, id: verb.id), class: 'prioritize-action__doswitch-body' do %>
+        <div class='prioritize-action__doswitch-body-a'></div>
+        <div class='prioritize-action__doswitch-body-b'></div>
+      <% end %>
+    <% else %>
+      <%= link_to record_stop_path(user_id: current_user.id, id: verb.id), method: :patch, remote: true, class: 'prioritize-action__doswitch-body is-switch-active' do %>
+        <div class='prioritize-action__doswitch-body-a'></div>
+        <div class='prioritize-action__doswitch-body-b'></div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="prioritize-action__doswitchStandBody">
+  </div>
+</div>

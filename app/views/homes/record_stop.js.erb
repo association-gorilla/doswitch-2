@@ -1,0 +1,6 @@
+<%# 優先アクションと設定アクションで条件分岐 %>
+<% if @verb.important %>
+  $('#home_prioritize_action_<%= @verb.id %>').html("<%= j(render partial: 'homes/prioritize_action', locals: {verb: @verb}) %>");
+<% else %>
+  $('#home_setup_action_<%= @verb.id %>').html("<%= j(render partial: 'homes/setup_action', locals: {verb: @verb}) %>");
+<% end %>
