@@ -148,6 +148,7 @@ GEM
       activerecord (>= 4.0, < 6.1)
     parser (2.7.1.2)
       ast (~> 2.4.0)
+    pg (0.20.0)
     pluginator (1.5.0)
     pre-commit (0.39.0)
       pluginator (~> 1.5)
@@ -325,6 +326,7 @@ DEPENDENCIES
   listen (~> 3.2)
   momentjs-rails
   paranoia
+  pg (= 0.20.0)
   pre-commit
   pry-rails
   puma (~> 3.11)

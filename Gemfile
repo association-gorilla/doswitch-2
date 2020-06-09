@@ -36,6 +36,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # binding.pryを挿入して、処理の経緯を把握できる
   gem 'pry-rails'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -58,4 +59,9 @@ group :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+# PostgreSQLデータベースを使用するためのgem
+group :production do
+  gem 'pg', '0.20.0'
 end
