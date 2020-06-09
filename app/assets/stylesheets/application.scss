@@ -20,10 +20,29 @@
     src: font-url("rounded-mplus-1m-regular.ttf") format("truetype"); 
   }
 
+  @font-face {
+    font-family: "DSEG";
+    src: font-url("DSEG7Classic-Bold.ttf") format("truetype"); 
+  }
+
 
 *{
   margin: 0;
   padding: 0;
   list-style: none;
+  color: #696969;
   font-family: "Rounded M+";
 }
+
+//ナビ
+
+.nav-list{
+
+  text-align: center;
+
+  &__item{
+    display: inline-block;
+  }
+}
+
+.nav{}
