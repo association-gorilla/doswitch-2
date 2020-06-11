@@ -1,32 +1,30 @@
-<nav class="nav-bar">  
-  <div class="nav">
-    <ul class="nav-list">
-      <% if user_signed_in? %>
-        <li class="nav-list__item">
-          <%= link_to "トップ", root_path, class: "btn btn-default" %>
-       </li>
-       <li class="nav-list__item">
-          <%= link_to "アクションカスタマイズ", user_verbs_path(user_id: current_user.id), class: "btn btn-default" %>
-       </li>
-        <li class="nav-list__item">
-          <%= link_to "学習計画", user_plan_allots_path(user_id: current_user.id), class: "btn btn-default" %>
-        </li>
-         <li class="nav-list__item">
-          <%= link_to "実績", user_achieve_records_path(user_id: current_user.id), class: "btn btn-default" %>
-        </li>
-        <li class="nav-list__item">
-          <%= link_to "アバウト", about_path, class: "btn btn-default" %>
-                </li>
-                <li class="nav-list__item">
-                    <%= link_to "ユーザー設定", edit_user_path(current_user), class: "btn btn-default" %>
-                </li>
-                <li class="nav-list__item">
-                    <%= link_to "ログアウト",destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' }, class: "btn btn-default" %>
-                </li>
-            <% end %>
-            <div id="flash_messages">
-                <%= render "layouts/flash_messages" %>
-            </div>
-        </ul>
-    </div>
+<nav id="nav" class="nav-bar">
+  <ul class="nav-list">
+    <% if user_signed_in? %>
+      <li class="nav-list__item">
+        <%= link_to "トップ", root_path, class: "btn btn-outline-secondary" %>
+      </li>
+      <li class="nav-list__item">
+        <%= link_to "アクションカスタマイズ", user_verbs_path(user_id: current_user.id), class: "btn btn-outline-secondary " %>
+      </li>
+      <li class="nav-list__item">
+        <%= link_to "学習計画", user_plan_allots_path(user_id: current_user.id), class: "btn btn-outline-secondary" %>
+      </li>
+      <li class="nav-list__item">
+        <%= link_to "実績", user_achieve_records_path(user_id: current_user.id), class: "btn btn-outline-secondary" %>
+      </li>
+      <li class="nav-list__item">
+        <%= link_to "アバウト", about_path, class: "btn btn-outline-secondary" %>
+      </li>
+      <li class="nav-list__item">
+        <%= link_to "ユーザー設定", edit_user_path(current_user), class: "btn btn-outline-secondary" %>
+      </li>
+      <li class="nav-list__item">
+        <%= link_to "ログアウト",destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' }, class: "btn btn-outline-secondary" %>
+      </li>
+    <% end %>
+  </ul>
+  <div id="flash_messages">
+    <%= render "layouts/flash_messages" %>
+  </div>
 </nav>
