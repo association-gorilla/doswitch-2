@@ -6,10 +6,10 @@ module HomesHelper
     when true
       # real_allotがまだ無い、もしくは値がnilのときに実行
       if recording_time_set(verb).blank?
-        tag.p('現在の実行時間　00:00:00')
+        tag.p('00:00:00')
       # それ以外はreal_allotの値を表示する
       else
-        tag.p('現在の実行時間　' + Time.at(recording_time_set(verb)).utc.strftime('%X'))
+        tag.p(Time.at(recording_time_set(verb)).utc.strftime('%X'))
       end
       # 計測実行中の場合
     when false

@@ -1,4 +1,4 @@
-<%= current_execution_time(verb) %>
+
 <%= plan_time(verb) %>
 <%= plan_clear(verb) %>
 <div class="prioritize-action__doswitch">
@@ -17,5 +17,8 @@
     <% end %>
   </div>
   <div class="prioritize-action__doswitchStandBody">
+  <span class="setup-action__current-timer">
+  <%= current_execution_time(verb) %>
+    </span> 
   </div>
 </div>
