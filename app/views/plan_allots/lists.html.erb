@@ -7,13 +7,13 @@
     <%# 通常は隠していてモーダルなどで表示する %>
     <p>目標時間：<%= f.select :allot_h, 1..24, class:"form_control" %> 時間<%= f.select :allot_m, 0..59, class:"form_control" %> 分</p>
     <p>期間：<%= f.date_select :begin_date, :use_month_numbers => true, class:"form_control" %> ~ <%= f.date_select :end_date, :use_month_numbers => true, class:"form_control" %>まで</p>
-    <% if Reward.find_by(plan_allot_id: plan_allot.id)&.profit %>
-      <p>ご褒美　　：<%= Reward.find_by(plan_allot_id: plan_allot.id).profit %></p>
-      <p>ご褒美　　：<%= f.text_field :profit, value: Reward.find_by(plan_allot_id: plan_allot.id).profit, class:"form_control" %></p>
+    <% if profit = PlanAllot.find(plan_allot.id)&.profit %>
+      <p>ご褒美　　：<%= profit %></p>
+      <p>ご褒美　　：<%= f.text_field :profit, value: profit, class:"form_control" %></p>
     <% end %>
     
-    <% if Reward.find_by(plan_allot_id: plan_allot.id)&.penalty %>
-      <p>ペナルティ：<%= Reward.find_by(plan_allot_id: plan_allot.id).penalty %></p>
+    <% if penalty = PlanAllot.find(plan_allot.id)&.penalty %>
+      <p>ペナルティ：<%= penalty %></p>
     <% end %>
     <p>ペナルティ：<%= f.text_field :penalty, class:"form_control" %></p>
     <%= f.submit "更新", class:"btn btn-info" %>
