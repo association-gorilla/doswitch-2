@@ -130,7 +130,7 @@ $(document).ready(function () {
     var nowHour = set2fig(nowTime.getHours() - totalAddHour + addBeyondHour);
     var nowMin = set2fig(just_nowMin + addBeyondMin);
     var nowSec = set2fig(just_nowSec);
-    var msg = "現在の実行時間　" + nowHour + ":" + nowMin + ":" + nowSec;
+    var msg =  nowHour + ":" + nowMin + ":" + nowSec;
     $("#record_time_output").text(msg);
   }, 1000);
 });
