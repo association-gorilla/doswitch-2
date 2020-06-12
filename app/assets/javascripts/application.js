@@ -130,18 +130,12 @@ $(document).ready(function () {
     var nowHour = set2fig(nowTime.getHours() - totalAddHour + addBeyondHour);
     var nowMin = set2fig(just_nowMin + addBeyondMin);
     var nowSec = set2fig(just_nowSec);
-    var msg = "現在の実行時間　" + nowHour + ":" + nowMin + ":" + nowSec;
+    var msg =  nowHour + ":" + nowMin + ":" + nowSec;
     $("#record_time_output").text(msg);
   }, 1000);
 });
 
 // カレンダー表示
-// $(function () {
-//   $('#calendar').fullCalendar({
-//     events: '/plan_allots.json',
-//   });
-// });
-
 $(function () {
   // 画面遷移を検知
   // $(document).on('turbolinks:load', function () {
@@ -171,8 +165,8 @@ $(function () {
     //終了時刻がないイベントの表示間隔
     defaultTimedEventDuration: '24:00:00',
     buttonText: {
-      prev: '前',
-      next: '次',
+      prev: '前月',
+      next: '次月',
       prevYear: '前年',
       nextYear: '翌年',
       today: '今日',
@@ -180,16 +174,12 @@ $(function () {
       week: '週',
       day: '日'
     },
-    // 日付クリックイベント
-    dayClick: function () {
-      alert('日付クリックイベント');
-    },
     // Drag & Drop & Resize
-    editable: true,
+    editable: false,
     //イベントの色を変える
-    eventColor: '#87cefa',
+    eventColor: '#34cefa',
     //イベントの文字色を変える
-    eventTextColor: '#ffffff',
+    eventTextColor: '#000000',
     eventRender: function (event, element) {
       element.css("font-size", "0.8em");
       element.css("padding", "5px");

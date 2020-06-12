@@ -1,3 +1,235 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.top-page {
+
+    &__main-title{
+        margin: 20px 0 0.2em;
+        font-size: 80px;
+    }
+
+    &__title{
+        position:relative;
+        font-family: "自家製Rounded M+";
+        font-size: 1.0em;
+        color: #6495ed;
+        text-align: center;
+        span{
+            color: #ff69b4;
+            font-size: 1.2em;
+            font-family: "自家製Rounded M+";
+        }
+    }
+
+    &__furigana-do{
+        font-size: 0.3em;
+        color: #6495ed;
+        position: absolute;
+            left: 18em;
+    }
+
+    &__furigana-switch{
+        font-size: 0.3em;
+        color: #6495ed;
+        position: absolute;
+            right: 16.5em;
+    }
+
+    &__app-discription{
+        position:　absolute;
+        margin-top: -0.5em;
+        color: #696969;
+        font-size: 0.25em;
+        text-align: center;
+    }
+}
+
+.prioritize-action,
+.setup-action {
+
+    text-align: center;
+
+    &::after{
+        display: block;
+        clear: both;
+        content: "";
+    }
+
+    &__title{
+        position: relative;
+        display: inline-block;
+        padding: 0.2em 0.5em;
+        border-radius: 2em;
+        font-family: "Rounded M+";
+        font-size: 1.5em;
+        text-align: center;
+        border: dashed 2px white;
+    }
+
+    &__actName {
+        margin-bottom: 2em;
+        text-align: center;
+    }
+
+    &__doswitch{
+        position: relative;
+        
+    }
+
+    &__doswitchStandTop {
+        /* スイッチ台座部分 */
+        position: relative;
+        width: 220px;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+        z-index: 1;
+    }
+  
+    &__doswitchStandBody{/* スイッチスタンド */
+        position: absolute;
+        width: 220px;
+        height: 100px;
+        margin: 0 auto;
+        border-radius: 5px 5px 50% 50% / 5px 5px 33.3% 33.3%; 
+        box-shadow: 0 3px 3px;
+
+    }
+
+    &__doswitch-body {
+        /* スイッチ側面一部（両端） */
+        position: relative;
+        top: -18px;
+        display: block;
+        margin: 0 auto;
+        width: 160px;
+        height: 40px;
+        background-color: #dcdcdc;
+
+        &:active {
+            /* クリックアニメーション */
+            height: 20px;
+            top: 2px;
+        }
+    }
+
+    &__doswitch-body-a,
+    &__doswitch-body-b {
+        /* スイッチ底面、頭構成部分 */
+        position: absolute;
+        left: 0;
+        display: block;
+        width: 160px;
+        height: 40px;
+        border-radius: 100%;
+    }
+
+    &__doswitch-body-a {
+        /* スイッチ底面：位置調整とスタイル */
+        bottom: -20px;
+        background-color: #dcdcdc;
+    }
+
+    &__doswitch-body-b {
+        /* スイッチ頭：位置調整とスタイル */
+        top: -20px;
+        background-color: #f5f5f5;
+    }
+}
+
+
+.prioritize-action{
+
+    &__title{
+        background: #ffa899;
+        box-shadow: 0px 0px 0px 5px #ffa899;
+    }
+
+    &__list-ul{
+        margin: 0.5em 0 0 6em;
+        width: 1010px;
+    }
+
+    &__item {
+        margin-right: 10px;
+        float: left;
+        width: 45%;
+        list-style: none;
+        
+    }
+
+    &__doswitchStandTop {
+        background-color: #ffc0cb; 
+    }
+    
+    &__doswitchStandBody{
+        background-color: #ffb6c1;
+        left: 118px;
+        bottom: -70px;
+    }
+    }
+
+.setup-action{
+
+    margin: 4em 0 6em;
+
+    &__title{
+        background-color: #ffd280;
+        box-shadow: 0px 0px 0px 5px #ffd280;
+    }
+
+    &__list-ul{
+        margin: -3em 0 0 80px;
+        width: 1010px;
+    }
+
+    &__item {
+        float: left;
+        margin: 50px 0 0 50px;
+        width: 25%;
+        list-style: none;
+    }
+
+    &__doswitchStandTop {
+        background-color: #fffacd;
+    }
+
+    &__doswitchStandBody{
+        background-color: #fff7b3; 
+        left: 18px;
+        bottom: -75px; 
+    }
+}
+
+
+.is-switch-active {
+    /* 選択時スイッチ */
+    height: 22px;
+    top: 0;
+    background-color: #dc143c;
+}
+
+
+
+.is-switch-active .prioritize-action__doswitch-body-a,
+.is-switch-active .setup-action__doswitch-body-a  {
+    /* 選択時スイッチ */
+    background-color: #dc143c;
+}
+
+.is-switch-active .prioritize-action__doswitch-body-b,
+.is-switch-active .setup-action__doswitch-body-b {
+    /* 選択時スイッチ */
+    background-color: #ff0000
+}
+
+.check_achieve_before {
+    color: gray;
+    opacity: 0.6;
+}
+
+.check_achieve_after {
+    color: lightgreen;
+}

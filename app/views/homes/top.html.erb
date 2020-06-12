@@ -1,16 +1,54 @@
-<h2>トップページ</h2>
-<h3>【最優先アクション】</h3>
-<% @important_verbs.each do |verb| %>
-  <p><%= verb.name %></p>
-  <%= record_toggle(verb) %>
-<% end %>
-<h3>【設定中アクション】</h3>
-<% @selected_verbs.each do |verb| %>
-  <p><%= verb.name %></p>
-  <%= record_toggle(verb) %>
-<% end %>
+<body class="top-page">
+  <section class="top-page__section">
+  <div class="top-page__main-title">
+    <h2 class="top-page__title">
+    <p class="top-page__furigana-do"> ドゥ</p>
+    <p class="top-page__furigana-switch"> スイッチ</p>
+    <span>D</span>ooo<span>S</span>witch
+    </h2>
+    <p class="top-page__app-discription">〜行動計測アプリ〜</p>
+    </div>
+    <%= render partial: 'layouts/nav' %>
+    <div class="prioritize-action">
+      <h3 class="prioritize-action__title">
+        【最優先アクション】
+      </h3>
+      <div class="prioritize-action__list">
+        <ul class="prioritize-action__list-ul">
+          <% @important_verbs.each do |verb| %>
+            <li class="prioritize-action__item">
+              <p class="prioritize-action__actName">
+                <%= verb.name %>
+              </p>
+              <div id="home_prioritize_action_<%= verb.id %>">
+                <%= render partial: 'homes/prioritize_action',  locals: { verb: verb} %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="setup-action">
+      <h3 class="setup-action__title">
+        【設定中アクション】
+      </h3>
+      <p class="setup-action__now-time"></p>
+      <div class="setup-action__list">
+        <ul class="setup-action__list-ul">
+          <% @selected_verbs.each do |verb| %>
+            <li class="setup-action__item">
+              <p class="setup-action__actName">
+                <%= verb.name %>
+              </p>
+              <div id="home_setup_action_<%= verb.id %>">
+                <%= render partial: 'homes/setup_action',  locals: { verb: verb} %>
+              </div>
+              
+            </li>
 
-<p id="RealtimeClockArea2"></p>
-
-
-
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>

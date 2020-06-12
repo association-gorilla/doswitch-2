@@ -29,6 +29,6 @@ class DetailRealAllot < ApplicationRecord
     detail_real_allot = DetailRealAllot.find_by(verb_id: verb_id, end_time: nil)
     detail_real_allot.update(end_time: Time.zone.now.in_time_zone('Tokyo'))
     real_allot = RealAllot.find_by(verb_id: verb_id, created_at: Time.zone.now.in_time_zone('Tokyo').all_day)
-    real_allot.update(allot: real_allot.allot.to_i + (Time.zone.now.in_time_zone('Tokyo') - detail_real_allot.begin_time))
+    real_allot&.update(allot: real_allot.allot.to_i + (Time.zone.now.in_time_zone('Tokyo') - detail_real_allot.begin_time))
   end
 end

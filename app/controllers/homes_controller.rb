@@ -17,12 +17,15 @@ class HomesController < ApplicationController
     # 当日の記録用レコードを作成する
     RealAllot.today_record_create(params[:id], current_user.id)
     flash[:success] = '「' + Verb.find(params[:id]).name + '」の計測を開始しました'
+    # 開始するときはajaxが取り違えた時刻を表示するので、リダイレクトさせる
     redirect_to request.referer
   end
 
   def record_stop
     DetailRealAllot.action_stop(params[:id])
-    flash[:success] = '計測を終了しました'
-    redirect_to request.referer
+    flash.now[:success] = '計測を終了しました'
+    @verb = Verb.find(params[:id])
+    # 停止する時は非同期
+    render :record_stop
   end
 end

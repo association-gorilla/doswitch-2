@@ -3,10 +3,75 @@
  *= require_self
  *= require fullcalendar
 */
-@import "bootstrap-sprockets";
+
 @import "bootstrap";
 
-.edit_user_image {
-  width: 150px;
-  border-radius: 75px;
+//アプリタイトル題名
+
+@font-face {
+  font-family: "自家製Rounded M+";
+  src: font-url("rounded-mplus-1p-black.ttf") format("truetype");
+}
+
+//見出し
+
+@font-face {
+  font-family: "Rounded M+";
+  src: font-url("rounded-mplus-1m-regular.ttf") format("truetype");
+}
+
+
+//タイマー時間
+@font-face {
+  font-family: "DSEG";
+  src: font-url("DSEG7Classic-Bold.ttf") format("truetype");
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #696969;
+  font-family: "Rounded M+";
+}
+
+
+//ナビ
+
+.nav-bar{
+  margin-bottom: 2rem;
+}
+
+.nav-list {
+  display: table;
+  table-layout: fixed;
+  margin: 0 auto;
+
+  &__item {
+    display: table-cell;
+    padding-right: 0.5rem;
+  }
+}
+
+.is-nav-selected .nav-list__item{
+    background-color: #696969;
+    color: #fff;
+}
+
+.setup-action__current-timer{
+  display: inline-block;
+  font-family: "DSEG";
+  font-size: 30px;
+  height: 50px;
+  position: absolute;
+  top: 35px;
+  left: 45px;
+  border-radius: 5%;
+  padding:5px;
+  margin-bottom: -20px;
+}
+
+.a{
+  margin-bottom: 50px;
 }
