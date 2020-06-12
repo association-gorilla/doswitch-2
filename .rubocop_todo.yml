@@ -131,6 +131,10 @@ Metrics/ModuleLength:
 Style/GuardClause:
   Exclude:
 
+Lint/AssignmentInCondition:
+  Exclude:
+    - "app/helpers/homes_helper.rb"
+
 AllCops:
   Exclude:
     # rubcopは**/*で終わる文字列のパターンを認識から除外する
