@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 # BootstrapでSassを使うgem
-gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap', '4.0.0'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
@@ -25,7 +25,8 @@ gem 'jquery-rails'
 # Railsで定時処理をするためのgem
 gem 'whenever', require: false
 # JavaScriptのランタイムを用意
-gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
+gem 'mini_racer', '~> 0.2.4'
 gem 'chartkick'
 # カレンダー表示するためのgem
 gem 'fullcalendar-rails'

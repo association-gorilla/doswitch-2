@@ -63,6 +63,7 @@
         padding: 0.2em 0.5em;
         border-radius: 2em;
         font-family: "Rounded M+";
+        font-size: 1.5em;
         text-align: center;
         border: dashed 2px white;
     }
@@ -74,6 +75,7 @@
 
     &__doswitch{
         position: relative;
+        
     }
 
     &__doswitchStandTop {
@@ -93,6 +95,7 @@
         margin: 0 auto;
         border-radius: 5px 5px 50% 50% / 5px 5px 33.3% 33.3%; 
         box-shadow: 0 3px 3px;
+
     }
 
     &__doswitch-body {
@@ -146,6 +149,7 @@
 
     &__list-ul{
         margin: 0.5em 0 0 6em;
+        width: 1010px;
     }
 
     &__item {
@@ -153,6 +157,7 @@
         float: left;
         width: 45%;
         list-style: none;
+        
     }
 
     &__doswitchStandTop {
@@ -161,7 +166,7 @@
     
     &__doswitchStandBody{
         background-color: #ffb6c1;
-        left: 130px;
+        left: 118px;
         bottom: -70px;
     }
     }
@@ -177,6 +182,7 @@
 
     &__list-ul{
         margin: -3em 0 0 80px;
+        width: 1010px;
     }
 
     &__item {
@@ -192,7 +198,7 @@
 
     &__doswitchStandBody{
         background-color: #fff7b3; 
-        left: 23px;
+        left: 18px;
         bottom: -75px; 
     }
 }
@@ -205,22 +211,16 @@
     background-color: #dc143c;
 }
 
-.is-switch-active .setup-action__doswitch-body-a {
+
+
+.is-switch-active .prioritize-action__doswitch-body-a,
+.is-switch-active .setup-action__doswitch-body-a  {
     /* 選択時スイッチ */
     background-color: #dc143c;
 }
 
+.is-switch-active .prioritize-action__doswitch-body-b,
 .is-switch-active .setup-action__doswitch-body-b {
-    /* 選択時スイッチ */
-    background-color: #ff0000
-}
-
-.is-switch-active .prioritize-action__doswitch-body-a {
-    /* 選択時スイッチ */
-    background-color: #dc143c;
-}
-
-.is-switch-active .prioritize-action__doswitch-body-b {
     /* 選択時スイッチ */
     background-color: #ff0000
 }
