@@ -21,6 +21,7 @@
 //= require fullcalendar/lang/ja
 //= require jquery_ujs
 //= require_tree .
+//= require toastr
 
 function set2fig(num) {
   // 桁数が1桁だったら先頭に0を加えて2桁に調整する
