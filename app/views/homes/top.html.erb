@@ -16,15 +16,7 @@
       <div class="prioritize-action__list">
         <ul class="prioritize-action__list-ul">
           <% @important_verbs.each do |verb| %>
-            <li class="prioritize-action__item">
-              <p class="prioritize-action__actName">
-                <%= verb.name %>
-              </p>
-
-              <div id="home_prioritize_action_<%= verb.id %>">
-                <%= render partial: 'homes/prioritize_action',  locals: { verb: verb} %>
-              </div>
-            </li>
+            <%= render partial: 'homes/prioritize_action',  locals: { verb: verb} %>
           <% end %>
         </ul>
       </div>
@@ -37,14 +29,7 @@
       <div class="setup-action__list">
         <ul class="setup-action__list-ul">
           <% @selected_verbs.each do |verb| %>
-            <li class="setup-action__item">
-              <p class="setup-action__actName">
-                <%= verb.name %>
-              </p>
-              <div id="home_setup_action_<%= verb.id %>">
-                <%= render partial: 'homes/setup_action',  locals: { verb: verb} %>
-              </div>
-            </li>
+            <%= render partial: 'homes/setup_action',  locals: { verb: verb} %>
           <% end %>
         </ul>
       </div>
