@@ -41,19 +41,23 @@ module HomesHelper
   end
 
   # プランを達成していたら表示する
-  def plan_clear(verb)
-    return unless plan_allot = verb&.plan_allots&.where('begin_date <= ?', Time.zone.today)&.where('end_date >= ?', Time.zone.today)&.first
-
-    plan_allot_time = plan_allot.allot_h * 3600 + plan_allot.allot_m * 60
-    real_allot_time = recording_time_set(verb)
-    return if real_allot_time.blank?
-
-    if plan_allot_time < real_allot_time
-      tag.i(class: 'fas fa-check fa-3x is-clear-time') +
-        (tag.p '(目標達成！)')
+  def action_name_with_plan(verb, class_name)
+    # 計画を立てている場合
+    if plan_allot = verb&.plan_allots&.where('begin_date <= ?', Time.zone.today)&.where('end_date >= ?', Time.zone.today)&.first
+      plan_allot_time = plan_allot.allot_h * 3600 + plan_allot.allot_m * 60
+      real_allot_time = recording_time_set(verb)
+      # 実行時間が計画時間を上回っている場合
+      if plan_allot_time < real_allot_time
+        # 目標達成後の表示
+        tag.p(verb.name, class: "#{class_name} is-after-clear-time")
+      # 実行時間が計画時間未満の場合
+      else
+        # 目標達成前の表示
+        tag.p(verb.name, class: "#{class_name} is-before-clear-time")
+      end
+    # 計画を立てていない場合
     else
-      tag.i(class: 'fas fa-check fa-3x check_achieve_before') +
-        (tag.p '(目標未達成)')
+      tag.p(verb.name, class: "#{class_name} is-before-clear-time")
     end
   end
 end

@@ -31,7 +31,7 @@ gem 'chartkick'
 # カレンダー表示するためのgem
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-#サクセスメッセージ、エラーメッセージにアニメーションをつけるgem
+# サクセスメッセージ、エラーメッセージにアニメーションをつけるgem
 gem 'toastr-rails'
 
 group :development, :test do

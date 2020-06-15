@@ -1,24 +1,26 @@
-
-<%= plan_time(verb) %>
-<%= plan_clear(verb) %>
-<div class="setup-action__doswitch">
-  <div class="setup-action__doswitchStandTop">
-    <%# setup_action_record_toggle(verb) %>
-    <% if  DetailRealAllot.find_by(verb_id: verb.id, end_time: nil).blank? %>
-      <%= link_to record_start_path(user_id: current_user.id, id: verb.id), class: 'setup-action__doswitch-body' do %>
-        <div class='setup-action__doswitch-body-a'></div>
-        <div class='setup-action__doswitch-body-b'></div>
-      <% end %>
-    <% else %>
-      <%= link_to record_stop_path(user_id: current_user.id, id: verb.id), method: :patch, remote: true, class: 'setup-action__doswitch-body is-switch-active' do %>
-        <div class='setup-action__doswitch-body-a'></div>
-        <div class='setup-action__doswitch-body-b'></div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="setup-action__doswitchStandBody">
-    <span class="setup-action__current-timer">
-  <%= current_execution_time(verb) %>
-    </span> 
-  </div>
+<div id="home_setup_action_<%= verb.id %>">
+  <li class="setup-action__item">
+    <%= plan_time(verb) %>
+    <%= action_name_with_plan(verb, "setup-action__actName") %>
+    <div class="setup-action__doswitch">
+      <div class="setup-action__doswitchStandTop">
+        <% if  DetailRealAllot.find_by(verb_id: verb.id, end_time: nil).blank? %>
+          <%= link_to record_start_path(user_id: current_user.id, id: verb.id), class: 'setup-action__doswitch-body' do %>
+            <div class='setup-action__doswitch-body-a'></div>
+            <div class='setup-action__doswitch-body-b'></div>
+          <% end %>
+        <% else %>
+          <%= link_to record_stop_path(user_id: current_user.id, id: verb.id), method: :patch, remote: true, class: 'setup-action__doswitch-body is-switch-active' do %>
+            <div class='setup-action__doswitch-body-a'></div>
+            <div class='setup-action__doswitch-body-b'></div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="setup-action__doswitchStandBody">
+        <span class="setup-action__current-timer">
+          <%= current_execution_time(verb) %>
+        </span>
+      </div>
+    </div>
+  </li>
 </div>
