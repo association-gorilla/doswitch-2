@@ -49,7 +49,7 @@ module HomesHelper
     return if real_allot_time.blank?
 
     if plan_allot_time < real_allot_time
-      tag.i(class: 'fas fa-check fa-3x check_achieve_after') +
+      tag.i(class: 'fas fa-check fa-3x is-clear-time') +
         (tag.p '(目標達成！)')
     else
       tag.i(class: 'fas fa-check fa-3x check_achieve_before') +
