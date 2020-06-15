@@ -36,3 +36,5 @@
 /jobs/*
 /public/packs
 /public/packs-test
+heroku-linux-x64.tar.gz
+heroku

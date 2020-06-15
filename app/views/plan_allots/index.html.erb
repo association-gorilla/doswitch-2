@@ -6,7 +6,7 @@
     <p>すること　：<%= plan_allot.verb.name %></p>
     <p>目標時間　：<%= plan_allot.allot_h %> 時間<%= plan_allot.allot_m %>分</p>
     <%# 通常は隠していてモーダルなどで表示する %>
-    <p>目標時間　：<%= f.select :allot_h, 1..24, class:"form_control" %> 時間<%= f.select :allot_m, 0..59, class:"form_control" %> 分</p>
+    <p>目標時間　：<%= f.select :allot_h, 0..24, class:"form_control" %> 時間<%= f.select :allot_m, 0..59, class:"form_control" %> 分</p>
     <p>期間　　　：<%= f.date_select :begin_date, :use_month_numbers => true, class:"form_control" %> ~ <%= f.date_select :end_date, :use_month_numbers => true, class:"form_control" %>まで</p>
     <p>ご褒美　　：<%= f.text_field :profit, class:"form_control" %></p>
     <p>ペナルティ：<%= f.text_field :penalty, class:"form_control" %></p>
@@ -20,7 +20,7 @@
 <%= form_with(model: @plan_allot, url: user_plan_allots_path(user_id: current_user.id), method: :post, local: true, class:"form_control") do |f| %>
   <p>すること　：<%= f.select :verb_id, @selected_verbs.map{ |v| [v.name, v.id] } %></p>
   <%# 整数時間で入力して保存時秒に変換する %>
-  <p>目標時間　：<%= f.select :allot_h, 1..24,class:"form_control" %> 時間<%= f.select :allot_m, 0..59,class:"form_control" %> 分</p>
+  <p>目標時間　：<%= f.select :allot_h, 0..24,class:"form_control" %> 時間<%= f.select :allot_m, 0..59,class:"form_control" %> 分</p>
   <p>期間　　　：<%= f.date_select :begin_date, :use_month_numbers => true, class:"form_control" %> ~ <%= f.date_select :end_date, :use_month_numbers => true, class:"form_control" %> まで</p>
   <p>ご褒美　　：<%= f.text_field :profit, class:"form_control" %></p>
   <p>ペナルティ：<%= f.text_field :penalty, class:"form_control" %></p>
