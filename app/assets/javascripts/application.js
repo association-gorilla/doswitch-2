@@ -21,6 +21,7 @@
 //= require fullcalendar/lang/ja
 //= require jquery_ujs
 //= require_tree .
+//= require toastr
 
 function set2fig(num) {
   // 桁数が1桁だったら先頭に0を加えて2桁に調整する
@@ -187,3 +188,25 @@ $(function () {
 
   });
 });
+
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+
+    
+
+}

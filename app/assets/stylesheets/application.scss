@@ -2,6 +2,7 @@
  *= require_tree .
  *= require_self
  *= require fullcalendar
+ *= require toastr
 */
 
 @import "bootstrap";
@@ -34,6 +35,10 @@
   list-style: none;
   color: #696969;
   font-family: "Rounded M+";
+}
+
+.aaa{
+ color: #fff;
 }
 
 

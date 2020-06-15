@@ -15,5 +15,14 @@
         <%= yield %>
       </div>
     </main>
+    <% flash.each do |type, msg| %>
+
+  <p class="aaa"><% type = 'success' if type == 'notice' %></p>
+  <% type = 'error' if type == 'alert' %>
+  <script>
+    toastr['<%= type %>']('<%= msg %>');
+  </script>
+<% end %>
   </body>
+  
 </html>
