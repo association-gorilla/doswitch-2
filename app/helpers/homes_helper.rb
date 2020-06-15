@@ -26,9 +26,8 @@ module HomesHelper
 
   # 計画時間が制定してあれば表示する
   def plan_time(verb)
-    return if verb&.plan_allots.blank?
+    return unless plan_allot = verb&.plan_allots&.where('begin_date <= ?', Time.zone.today)&.where('end_date >= ?', Time.zone.today)&.first
 
-    plan_allot = verb.plan_allots.first
     tag.p('目標時間　' + set2fig(plan_allot.allot_h) + ':' + set2fig(plan_allot.allot_m) + ':00')
   end
 
@@ -43,8 +42,7 @@ module HomesHelper
 
   # プランを達成していたら表示する
   def plan_clear(verb)
-    plan_allot = verb.plan_allots.first
-    return if plan_allot.blank?
+    return unless plan_allot = verb&.plan_allots&.where('begin_date <= ?', Time.zone.today)&.where('end_date >= ?', Time.zone.today)&.first
 
     plan_allot_time = plan_allot.allot_h * 3600 + plan_allot.allot_m * 60
     real_allot_time = recording_time_set(verb)

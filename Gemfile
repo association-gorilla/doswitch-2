@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3', '~> 1.4'
 gem 'uglifier', '>= 1.3.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 論理削除するためのgem
@@ -39,6 +38,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # binding.pryを挿入して、処理の経緯を把握できる
   gem 'pry-rails'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -61,4 +61,9 @@ group :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+# PostgreSQLデータベースを使用するためのgem
+group :production do
+  gem 'pg', '~> 0.20.0', require: false
 end
