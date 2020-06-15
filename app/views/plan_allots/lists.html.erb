@@ -5,7 +5,7 @@
     <p>すること：<%= plan_allot.verb.name %></p>
     <p>目標時間：<%= plan_allot.allot_h %> 時間<%= plan_allot.allot_m %>分</p>
     <%# 通常は隠していてモーダルなどで表示する %>
-    <p>目標時間：<%= f.select :allot_h, 1..24, class:"form_control" %> 時間<%= f.select :allot_m, 0..59, class:"form_control" %> 分</p>
+    <p>目標時間：<%= f.select :allot_h, 0..24, class:"form_control" %> 時間<%= f.select :allot_m, 0..59, class:"form_control" %> 分</p>
     <p>期間：<%= f.date_select :begin_date, :use_month_numbers => true, class:"form_control" %> ~ <%= f.date_select :end_date, :use_month_numbers => true, class:"form_control" %>まで</p>
     <% if profit = PlanAllot.find(plan_allot.id)&.profit %>
       <p>ご褒美　　：<%= profit %></p>
